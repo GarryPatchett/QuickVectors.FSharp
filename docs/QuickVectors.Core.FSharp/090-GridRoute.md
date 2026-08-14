@@ -33,7 +33,7 @@ The cases are (in alphabetical order):
 
 To specify a grid route simply supply its name, such as `GridRoute.Cascade`.
 
-You can see visual examples of the grid routes [here] (https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/GridRoute-Examples.png).
+You can see visual examples of the grid routes [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/GridRoute-Examples.png).
 
 ### Processing
 

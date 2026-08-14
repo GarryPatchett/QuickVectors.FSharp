@@ -42,7 +42,7 @@ The documentation files for each package have a numerical prefix and are ordered
 a way that it would be beneficial to the reader if they read them in ascending order of this numerical prefix,
 but you can dip in to whichever part of the documentation you want to read at any time.
 
-There is no code in this repository as the software is not open source. You can install and use the packages pretty
+> **IMPORTANT**: There is no code in this repository as the software is **not open source**. You can install and use the packages pretty
 much anywhere you like but the code is **NOT** yours to view, modify, or make derivatives of.
 See the "licence.md" file for each package for more information.
 

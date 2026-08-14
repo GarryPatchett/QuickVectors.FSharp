@@ -51,7 +51,7 @@ See the "licence.md" file for each package for more information.
 The packages in this project contain a lot of types and modues and trying to understand them all before trying
 to do anything with them would be a difficult task.
 
-Because of this it is recommended that you read the short tutorial (in the TUTORIAL.md file) first so that you
+Because of this it is recommended that you read the [short tutorial](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/TUTORIAL.md) first so that you
 can get used to how to use some of the various functionalities in a step-by-step fashion.
 
 There's nothing particularly complicated in these packages but the shear amount of 'stuff' to learn can

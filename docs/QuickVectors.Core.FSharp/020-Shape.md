@@ -58,6 +58,8 @@ used make the sides overlap. In thses rare cases just generate the design again 
 
 To specify a shape simply supply its name, such as `Shape.Rectangle`.
 
+You can see visual examples of the different shapes [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/Shape-Examples.png).
+
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.

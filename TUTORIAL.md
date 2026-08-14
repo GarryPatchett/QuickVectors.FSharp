@@ -243,6 +243,8 @@ You can ignore the `Reordering`, `Modification`, and `Noise` fields of the fill 
 
 The two colours that you specified are ready-made colours and others are available or you can make your own (see later).
 
+Don't forget to use `Some fillDefinition` rather than just `fillDefinition`; this is explained a bit more later on.
+
 If you send the code to the FSI your design should have changed.
 
 ![Tutorial Step 2 Image](/images/Tutorial-Step2.png "Tutorial Step 2")

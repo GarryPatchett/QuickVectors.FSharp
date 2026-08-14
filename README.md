@@ -33,7 +33,7 @@ The documentation for the `Patterns` package can be referred to when creating de
 
 There is no user documentation for the `Elements` package as you would not normally use the contents manually.
 
-The documentation for the `Export` package tells you how to export designs.
+The documentation for the `Export` package tells you how to export designs and create samples.
 
 Various types and modules are provided and the documentation for such can be found in the
 documentation for the relevant package.

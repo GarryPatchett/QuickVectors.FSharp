@@ -2,6 +2,8 @@
 
 This is the public repository for the QuickVectors.FSharp packages.
 
+![Mixed Examples Image](/images/Mixed-Examples.png "Mixed Examples")
+
 ## Contents
 
 - [Overview](#overview)

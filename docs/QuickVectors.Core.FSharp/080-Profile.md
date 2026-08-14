@@ -60,6 +60,8 @@ The cases are:
 
 To specify a profile simply supply its name, such as `Profile.Linear`.
 
+You can see visual examples of the profiles [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/Profile-Examples.png).
+
 ## The Profile Module
 
 The `Profile` **module** provides functions for use with profiles.

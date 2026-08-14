@@ -137,6 +137,8 @@ Some examples are:
 - `StandardPalette.Vista.desert` : A desert sunset;
 - `StandardPalette.Flags.PrideRainbow` : The colours of the Pride rainbow flag.
 
+You can see visual examples of the standard palettes [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/StandardPalette-Examples.png).
+
 Try experimenting with different palettes in various designs to see which you like best in certain situations.
 
 If you want to make a slightly different version of a standard palette, or any other palette, then that's possible.

@@ -2,6 +2,8 @@
 
 This is the public repository for the QuickVectors.FSharp packages.
 
+Together these packages allow you to quickly create procedurally-generated vector designs like those shown below, often with very little code.
+
 ![Mixed Examples Image](/images/Mixed-Examples.png "Mixed Examples")
 
 ## Contents

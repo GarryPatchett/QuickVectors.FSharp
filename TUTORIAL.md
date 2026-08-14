@@ -6,19 +6,19 @@ This is a short tutorial for the QuickVectors.FSharp packages.
 
 - [Installation](#installation)
 - [First Steps](#first-steps)
-    - [Your First Design](#your-first-design)
+    - [Step 1 - Your First Design](#step-1---your-first-design)
     - [Viewing The Pattern](#viewing-the-pattern)
-    - [Changing The Fill](#changing-the-fill)
-    - [Changing The Colours](#changing-the-colours)
-    - [Removing The Outline](#removing-the-outline)
-    - [Adding Some Gaps](#adding-some-gaps)
-    - [Adding Some Rotation](#adding-some-rotation)
-    - [Adding Shape Size Variation](#adding-shape-size-variation)
-    - [Changing The Shape](#changing-the-shape)
-    - [Fills To Outlines](#fills-to-outlines)
-    - [Adding Some Colour Variation](#adding-some-colour-variation)
-    - [Using A Different Grid Size](#using-a-different-grid-size)
-    - [Adding An Offset](#adding-an-offset)
+    - [Step 2 - Changing The Fill](#step-2---changing-the-fill)
+    - [Step 3 - Changing The Colours](#step-3---changing-the-colours)
+    - [Step 4 - Removing The Outline](#step-4---removing-the-outline)
+    - [Step 5 - Adding Some Gaps](#step-5---adding-some-gaps)
+    - [Step 6 - Adding Some Rotation](#step-6---adding-some-rotation)
+    - [Step 7 - Adding Shape Size Variation](#step-7---adding-shape-size-variation)
+    - [Step 8 - Changing The Shape](#step-8---changing-the-shape)
+    - [Step 9 - Fills To Outlines](#step-9---fills-to-outlines)
+    - [Step 10 - Adding Some Colour Variation](#step-10---adding-some-colour-variation)
+    - [Step 11 - Using A Different Grid Size](#step-11---using-a-different-grid-size)
+    - [Step 12 - Adding An Offset](#step-12---adding-an-offset)
 - [What Next](#what-next)
 - [Samples](#samples)
 
@@ -58,7 +58,7 @@ learn them all at once could be difficult.
 
 It's probably better to start looking at a ready-made design and then go on to learn the different types by seeing how to change that design. So here we go...
 
-### Your First Design
+### Step 1 - Your First Design
 
 You can start by making a very simple design based on a ready-made pattern.
 
@@ -201,7 +201,7 @@ once you get the hang of things.
 At the moment you don't need to worry too much about most of these fields; you can come back
 later and experiment with them as much as you want.
 
-### Changing The Fill
+### Step 2 - Changing The Fill
 
 Now, what if you want red- and blue-filled squares instead? Well, you would need a different fill definition.
 
@@ -247,7 +247,7 @@ If you send the code to the FSI your design should have changed.
 If you don't want the shapes to be filled then you can specify the `Fill` field as None.
 (Specifying both the `Fill` and `Stroke` fields as None will give you invisible shapes.)
 
-### Changing The Colours 
+### Step 3 - Changing The Colours 
 
 What if you don't like those particular colours? Well, you can make your own.
 
@@ -294,7 +294,7 @@ Here you have created two new colours:
 
 You have also changed the fill definition to use the new colours.
 
-### Removing The Outline
+### Step 4 - Removing The Outline
 
 What if you don't like the black outlines? Well, you can remove them.
 
@@ -331,7 +331,7 @@ let fillDefinition =
 
 Here you have simply told the pattern to have no Stroke (None, rather than Some).
 
-## Adding Some Gaps
+## Step 5 - Adding Some Gaps
 
 What if you want to have some gaps between the squares. Well, that's easy enough to do.
 
@@ -373,7 +373,7 @@ Here you have added a column gap of 40.0 and a row gap of 40.0.
 
 Both the column gap and the row gap are Option fields, so if you don't want one other the other, or both, you can set the one(s) you don't want to None.
 
-### Adding Some Rotation
+### Step 6 - Adding Some Rotation
 
 What if you want to rotate the shapes randomly? Not a problem.
 
@@ -416,7 +416,7 @@ Here you have used a ready-made rotation definition which rotates shapes randoml
 The rotation definition isn't an Option because, in this pattern, it's always available
 to be used even if it is not used in every circumstance.
 
-### Adding Shape Size Variation
+### Step 7 - Adding Shape Size Variation
 
 And now you want to make the shapes different sizes? Again, not a difficult thing to do.
 
@@ -469,7 +469,7 @@ The shape size definition isn't an Option because, in this pattern, it's always 
 
 Remember that you can use Intellisense at any time to get information about any field or type.
 
-### Changing the Shape
+### Step 8 - Changing the Shape
 
 And now you want to use a different shape? Easy.
 
@@ -516,7 +516,7 @@ let shapeSizeDefinition =
 
 Here you have simply change the `Shape` field to use a different shape.
 
-### Fills to Outlines
+### Step 9 - Fills to Outlines
 
 But now you want outlined shapes instead of filled ones? Okay, we can do that.
 
@@ -575,7 +575,7 @@ the default of 1.0 to 10.0, and changed the Fill and Stroke fields in the patter
 
 (The stroke width can be varied in lots of different ways.)
 
-### Adding Some Colour Variation
+### Step 10 - Adding Some Colour Variation
 
 And now you want some variety in the outline colours? Again, not a problem.
 
@@ -634,7 +634,7 @@ you can choose different numbers to get a design which you like and can recreate
 specifying that same number again. (All of the ready-made patterns, by default, use a new random
 seed randomly each time you generate the design.)
 
-### Using A Different Grid Size
+### Step 11 - Using A Different Grid Size
 
 And now you want a different grid size? That's simple enough.
 
@@ -688,7 +688,7 @@ Here you have changed the grid size by speficying the number of columns and rows
 
 As with a lot of types, there are also a variety of ready-made values for you to use without specifying them manually.
 
-## Adding An Offset 
+## Step 12 - Adding An Offset 
 
 What if you want to offset the grid a bit? That's easily done.
 

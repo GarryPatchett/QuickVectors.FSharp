@@ -27,7 +27,7 @@ which will install all of the packages together at the same time.
 
 Once you have installed the `Export` package you can quickly generate patterns and export them to SVG documents.
 
-The documentation for the `Core` package will be very useful when creating patterns.
+The documentation for the `Core` package [here](https://github.com/GarryPatchett/QuickVectors.FSharp/tree/main/docs/QuickVectors.Core.FSharp) will be very useful when creating patterns.
 
 The documentation for the `Patterns` package can be referred to when creating designs from patterns.
 

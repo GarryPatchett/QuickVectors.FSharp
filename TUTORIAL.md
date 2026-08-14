@@ -494,8 +494,6 @@ let fillDefinition =
         Modification = None 
         Noise = None }
 
-let strokeDefinition = 
-    fill
 let shapeSizeDefinition = 
     {   ShapeSizeDefinition.fullRangeRandom with 
             WidthRange = ShapeDimensionRange.fiftyAndAbove

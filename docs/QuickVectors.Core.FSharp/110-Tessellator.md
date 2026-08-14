@@ -32,6 +32,8 @@ The cases are (in aphabetical order):
 
 To specify a tessellator simply supply its name, such as `Tessellator.Hexagons`.
 
+You can see visual examples of the tessellators [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/Tessellator-Examples.png).
+
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.

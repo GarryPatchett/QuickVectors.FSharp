@@ -19,6 +19,7 @@ This is a short tutorial for the QuickVectors.FSharp packages.
     - [Step 10 - Adding Some Colour Variation](#step-10---adding-some-colour-variation)
     - [Step 11 - Using A Different Grid Size](#step-11---using-a-different-grid-size)
     - [Step 12 - Adding An Offset](#step-12---adding-an-offset)
+    - [Step 13 - Varying The Stroke Thickness](#step-13---varying-the-stroke-thickness)
 - [What Next](#what-next)
 - [Samples](#samples)
 
@@ -802,7 +803,7 @@ let strokeWidthDefinition = StrokeWidthDefinition.fromFloats 6 16
 
 let strokeDefinition = 
     {   (fillDefinition |> StrokeDefinition.fromFillDefinition) with
-            // Use the new stroke width definition.
+            // Using the new stroke width definition.
             Width = strokeWidthDefinition 
             Noise = Some Noise.More }
 
@@ -819,7 +820,6 @@ let shapeSizeDefinition =
         GridSize = GridSize.fromColumnsAndRows 6 10 
         ColumnGap = 40.0 |> ColumnGap.fromFloat |> Some
         RowGap = 40.0 |> RowGap.fromFloat |> Some
-        // Added a new alternating grid offset.
         GridOffset = 70.0 |> GridOffset.alternating |> Some
         Fill = None
         Stroke = Some strokeDefinition 

@@ -773,6 +773,66 @@ As with some other fields, the grid offset field is an Option, so don't forget t
 
 ![Tutorial Step 12 Image](/images/Tutorial-Step12.png "Tutorial Step 12")
 
+## Step 13 - Varying The Stroke Thickness 
+
+And now you want the thicknesses of the stroke to vary? Again, easily done.
+
+```fsharp
+#r "nuget: QuickVectors.Export.FSharp"
+
+open System.IO 
+open QuickVectors.FSharp 
+open QuickVectors.Patterns.FSharp 
+open QuickVectors.Export.Svg.FSharp 
+
+let pink = Colour.fromBytes 252uy 151uy 151uy 
+
+let lightBlue = Colour.fromHexString "97D5FC"
+
+let fillDefinition = 
+    {   FillDefinition.ColourScheme = 
+            ColourScheme.AlternatingBetween (First = pink, Second = lightBlue) 
+        Reordering = None 
+        Modification = None 
+        Noise = None }
+
+// Create a new stroke width definition.
+// (The Profile is Random by default.)
+let strokeWidthDefinition = StrokeWidthDefinition.fromFloats 6 16 
+
+let strokeDefinition = 
+    {   (fillDefinition |> StrokeDefinition.fromFillDefinition) with
+            // Use the new stroke width definition.
+            Width = strokeWidthDefinition 
+            Noise = Some Noise.More }
+
+let shapeSizeDefinition = 
+    {   ShapeSizeDefinition.fullRangeRandom with 
+            WidthRange = ShapeDimensionRange.fiftyAndAbove
+            HeightsEqualWidths = true }
+
+{   ShapeGrid.chessBoard with 
+        RandomSeed = RandomSeed.fromInt 567
+        Shape = Shape.RoundedRectanglePath
+        ShapeSize = shapeSizeDefinition 
+        Rotation = RotationDefinition.fourtyFivesRandom
+        GridSize = GridSize.fromColumnsAndRows 6 10 
+        ColumnGap = 40.0 |> ColumnGap.fromFloat |> Some
+        RowGap = 40.0 |> RowGap.fromFloat |> Some
+        // Added a new alternating grid offset.
+        GridOffset = 70.0 |> GridOffset.alternating |> Some
+        Fill = None
+        Stroke = Some strokeDefinition 
+} 
+|> ShapeGrid.generate 
+|> Svg.export SvgExportSettings.standard
+|> fun svg -> File.WriteAllText(@"MyFirstDesign.svg", svg) 
+```
+
+Here you have created a new stroke width definition and used it as part of the stroke definition.
+
+![Tutorial Step 13 Image](/images/Tutorial-Step13.png "Tutorial Step 13")
+
 ## What Next
 
 And I could go on and on for quite some time as there are lots of fields and lots of possibilities for each of them, but I won't.

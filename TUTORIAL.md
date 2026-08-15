@@ -776,7 +776,7 @@ As with some other fields, the grid offset field is an Option, so don't forget t
 
 ## Step 13 - Varying The Stroke Thickness 
 
-And now you want the thicknesses of the stroke to vary? Again, easily done.
+And now you want the thicknesses of the strokes to vary? Again, easily done.
 
 ```fsharp
 #r "nuget: QuickVectors.Export.FSharp"

@@ -20,7 +20,7 @@ The cases are (in aphabetical order):
 | **Crystals**                  | Like tall and thin hexagons                                           | 
 | **Diamonds** **1*             | Squares rotated by fourty-five degrees                                |
 | **Hexagons**                  | Just simple hexagons                                                  |
-| **Isocubes** **2*             | Three quadrilaterals which together look like an isometric cube       | 
+| **Isocubes** **2*             | Three parallelograms which together look like an isometric cube       | 
 | **Kites** **3*                | Two kite shapes, like stretched diamonds                              | 
 | **Octodiamonds** **3*         | An octagon with a diamond attached to one 'corner'                    | 
 | **RectangularWeave** **3*     | Two rotated rectangles                                                | 
@@ -32,19 +32,19 @@ The cases are (in aphabetical order):
 
 To specify a tessellator simply supply its name, such as `Tessellator.Hexagons`.
 
-You can see visual examples of the tessellators [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/Tessellator-Examples.png).
+You can see visual examples of the tessellators [here](images/Tessellator-Examples.png "Visual roll call of the available tessellators").
 
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.
-See the Overview documentation for more information about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Exception-free Processing
 
 Exception-free processing versions - FailSafe, Option, and Result - of some functions are available.
-See the Overview documentation for more information about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

@@ -11,9 +11,9 @@ A profile determines the 'shape' of a sequence of values.
 - [Exception-free Processing](#exception-free-processing)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
-> See the `QuickData.Core.FSharp` documentation for more information about the Normal type.
+> See the `QuickData.Core.FSharp` [documentation](https://www.nuget.org/packages/QuickData.Core.FSharp "QuickData.Core.FSharp package documentation") for more information about the Normal type.
 >
-> See the `QuickData.Numbers.FSharp` documentation for more information about Normal sequences.
+> See the `QuickData.Numbers.FSharp` [documentation](https://www.nuget.org/packages/QuickData.Numbers.FSharp "QuickData.Numbers.FSharp package documentation") for more information about Normal sequences.
 
 ## The Profile Type
 
@@ -60,7 +60,7 @@ The cases are:
 
 To specify a profile simply supply its name, such as `Profile.Linear`.
 
-You can see visual examples of the profiles [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/Profile-Examples.png).
+You can see visual examples of the profiles [here](images/Profile-Examples.png "Visual roll call of the available profiles").
 
 ## The Profile Module
 
@@ -98,14 +98,14 @@ let sineWave =
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.
-See the Overview documentation for more information about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Exception-free Processing
 
 Exception-free processing versions - FailSafe, Option, and Result - of some functions are available.
-See the Overview documentation for more information about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

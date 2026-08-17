@@ -24,7 +24,7 @@ The colour type has three fields:
 - `Green` : The green component of the colour;
 - `Blue` : The blue component of the colour.
 
-Each of these fields is a luminosity (see [documentation](030-Luminosity.md "Luminosity documentation") elsewhere).
+Each of these fields is a [Luminosity](030-Luminosity.md "The Luminosity type and module").
 
 All combinations of luminosities are valid.
 

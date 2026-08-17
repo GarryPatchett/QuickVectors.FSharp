@@ -30,17 +30,19 @@ The cases are (in aphabetical order):
 
 To specify a pane form simply supply its name, such as `PaneForm.PaneTriangles`.
 
+![Pane Form Examples Image](images/PaneForm-Examples.png "Pane Form Examples")
+
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.
-See the Overview documentation for more information about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Exception-free Processing
 
 Exception-free processing versions - FailSafe, Option, and Result - of some functions are available.
-See the Overview documentation for more information about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

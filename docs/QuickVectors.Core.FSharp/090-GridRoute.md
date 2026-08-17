@@ -33,7 +33,7 @@ The cases are (in alphabetical order):
 
 To specify a grid route simply supply its name, such as `GridRoute.Cascade`.
 
-You can see visual examples of the grid routes [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/GridRoute-Examples.png).
+You can see visual examples of the grid routes [here](images/GridRoute-Examples.png "Visual roll call of the available grid routes").
 
 ### Processing
 
@@ -71,13 +71,15 @@ let spiralIn =
 
 ## Discriminated Union Identity Values
 
-Functions are available for converting to and from POCO types and DU cases. See the Overview documentation for more information about these.
+Functions are available for converting to and from POCO types and DU cases.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Exception-free Processing
 
-Exception-free processing versions - FailSafe, Option, and Result - of some functions are available. See the Overview documentation for more information about these.
+Exception-free processing versions - FailSafe, Option, and Result - of some functions are available.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

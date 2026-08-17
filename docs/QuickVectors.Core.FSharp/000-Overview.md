@@ -2,7 +2,8 @@
 
 ## Contents
 
-This document gives an overview of the QuickVectors.Core.FSharp package.  
+This document gives an overview of the QuickVectors.Core.FSharp package.
+  
 Please see the other related documentation for specific information about the different areas.
 
 - [Overview](#overview)
@@ -25,7 +26,7 @@ which provides some types and their related functions, and also some helper func
 the `QuickVectors.Export.FSharp` package instead which will install this package, and others, and allow you to
 generate designs and export them.
 
-For more information about the types, modules, and functions provided, please see the relevant documentation elsewhere.
+For more information about the types, modules, and functions provided, links are provided below.
 
 > **Note:** You can use IntelliSense in your code editor to get more information about each type and function.
 
@@ -37,7 +38,7 @@ available on the web; just search for ***rgb color space*** to find lots of usef
 types and modules implemented here as they are used extensively in those other packages.
 
 All luminosities and colours are 8-bit, meaning that the value for a luminosity or a colour component
-can be held in a single unsigned byte ( e.g. 0 to 255).
+can be held in a single unsigned byte ( e.g. a value between 0 to 255, inclusive).
 
 ## Types and Modules
 
@@ -45,26 +46,26 @@ The types provided, with associated modules, are (in aphabetical order):
 
 | Type/Module                   | Defines/Specifies                                                 |
 | ----------------------------- | ----------------------------------------------------------------- |
-| **Colour**                    | A colour in an 8-bit RGB colour space                             |
-| **ColourScheme**              | How colours are chosen                                            |
-| **GridRoute**                 | The route of a grid (how the cells will be visited)               |
-| **GridSize**                  | The size of a grid                                                |
-| **Luminosity**                | A colour component in an 8-bit RGB colour space                   |
-| **Palette**                   | A selection of colours which can be used by some colour schemes   |
-| **PaneForm**                  | The form of a pane pattern                                        |
-| **Profile**                   | The 'shape' of the generated numerical values                     |
-| **RandomSeed**                | A seed used to generate various things randomly                   |
-| **Range**                     | A range of values                                                 |
-| **Shape**                     | A shape which can be used in some patterns                        |
-| **StandardPalette**           | Some ready-made palettes                                          |
-| **Tessellator**               | A tessellating shape which can be used in a tessellator pattern   |
-| **TessellatorShadingPolicy**  | How/if shading will be applied to the colours                     |
+| **[Colour](040-Colour.md "The Colour type and module")**                    | A colour in an 8-bit RGB colour space                             |
+| **[ColourScheme](060-ColourScheme.md "The ColourScheme type and module")**              | How colours are chosen                                            |
+| **[GridRoute](090-GridRoute.md "The GridRoute type and module")**                 | The route of a grid (how the cells will be visited)               |
+| **[GridSize](100-GridSize.md "The GridSize type and module")**                  | The size of a grid                                                |
+| **[Luminosity](030-Luminosity.md "The Luminosity type and module")**                | A colour component in an 8-bit RGB colour space                   |
+| **[Palette](050-Palette.md "The Palette type and module")**                   | A selection of colours which can be used by some colour schemes   |
+| **[PaneForm](130-PaneForm.md "The PaneForm type and module")**                  | The form of a pane pattern                                        |
+| **[Profile](080-Profile.md "The Profile type and module")**                   | The 'shape' of the generated numerical values                     |
+| **[RandomSeed](010-RandomSeed.md "The RandomSeed type and module")**                | A seed used to generate various things randomly                   |
+| **[Range](070-Range.md "The Range type and module")**                     | A range of values                                                 |
+| **[Shape](020-Shape.md "The Shape type and module")**                     | A shape which can be used in some patterns                        |
+| **[StandardPalette](050-Palette.md "The StandardPalette type and module")**           | Some ready-made palettes                                          |
+| **[Tessellator](110-Tessellator.md "The Tessellator type and module")**               | A tessellating shape which can be used in a tessellator pattern   |
+| **[TessellatorShadingPolicy](120-TessellatorShadingPolicy.md "The TessellatorShadingPolicy type and module")**  | How/if shading will be applied to the colours                     |
 
 ## Helpers
 
 Some modules exist which provide some helper functions which might be useful, and these are:
 
-- `ByteHelpers` : Provides functions for manipulating byte values.
+- `ByteHelpers` : Provides [functions](900-HelperModules.md "The helper modules") for manipulating byte values.
 
 ## Discriminated Union Identity Values
 
@@ -112,7 +113,7 @@ it can be assumed that the function will not raise an exception.
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.
 
 ## Dependencies 

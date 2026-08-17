@@ -23,7 +23,7 @@ Provides a way to generate sequences of colours.
 
 ## The Colour Scheme Type
 
-The `ColourScheme` **type** defines a discriminated union which can be used to generate a sequence of colours.
+The `ColourScheme` **type** defines a discriminated union which can be used to generate a sequence of [Colours](040-Colour.md "The Colour type and module").
 
 The colours generated are options of either `None` (no colour), or `Some <colour>`.
 When a colour is mentioned below it is really a `Some <colour>`, for example, Black is really `Some Colour.black`.
@@ -36,9 +36,9 @@ There are no validation or construction functions for colour schemes as you can 
 a DU case with valid elements; just create the case as you would normally.
 
 If any case requires a list, and that list is empty, then a sequence of invalid colour will
-be generated (see documentation elsewhere).
+be generated (see the [Colour](040-Colour.md "The Colour type and module") documentation).
 
-Where there is a choice of full, dark, mid-tones, or light greyscales or colours, the luminosity ranges are:
+Where there is a choice of full, dark, mid-tones, or light greyscales or colours, the [luminosity](030-Luminosity.md "The Luminosity type and module") ranges are:
 
 - **Full** : 0 to 255 (inclusive);
 - **Dark** : 0 to 84 (inclusive);
@@ -240,7 +240,9 @@ let colours =
     //          Rgb(30,244,69); Rgb(41,221,57); etc. }
 ```
 
+> See the `QuickData.Core.FSharp` [documentation](https://www.nuget.org/packages/QuickData.Core.FSharp "QuickData.Core.FSharp package documentation") for more information about the Normal type.
+
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")*  GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

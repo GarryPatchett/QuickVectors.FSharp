@@ -24,7 +24,7 @@ The colour type has three fields:
 - `Green` : The green component of the colour;
 - `Blue` : The blue component of the colour.
 
-Each of these fields is a luminosity (see documentation elsewhere).
+Each of these fields is a luminosity (see [documentation](030-Luminosity.md "Luminosity documentation") elsewhere).
 
 All combinations of luminosities are valid.
 
@@ -227,5 +227,5 @@ These are values for grey colours where the component values are equal.
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

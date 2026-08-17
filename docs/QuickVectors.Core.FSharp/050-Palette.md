@@ -16,7 +16,7 @@ A selection of colours in an 8-bit RGB colour space which can be used in designs
 
 ## The Palette Type
 
-The `Palette` **type** defines a palette containing colours in an 8-bit RGB colour space.
+The `Palette` **type** defines a palette containing [Colours](040-Colour.md "The Colour type and module") in an 8-bit RGB colour space.
 
 A palette can be defined via an array of colours or an array of weighted colours.
 
@@ -47,11 +47,11 @@ For example, given the following array of colours and weights:
 
 There is twice the amount of Colour.oneHalfGrey than there is of Colour.black, and there is three times the amount of Colour.white than there is of Colour.black, and one and a half times the amount of Colour.white than there is of Colour.oneHalfGrey.
 
-The more of a particular colour there is in a palette the more often that colour will be chosen when generating colours from a Colour Scheme (see related documentation) which uses that palette.
+The more of a particular colour there is in a palette the more often that colour will be chosen when generating colours from a [ColourScheme](060-ColourScheme.md "The ColourScheme type and module") which uses that palette.
 
 If all of the colours in a palette have the same weight then they are all just as likely to be chosen.
 
-> **Note:** Weights are clamped to the range of 1 to 20 (inclusive) so that no one colour can be 'overly-present'.
+> **Note:** Weights are integers clamped to the range of 1 to 20 (inclusive) so that no one colour can be 'overly-present'.
 
 ### Deconstruction Functions 
 
@@ -126,18 +126,18 @@ These palettes are split into various sub-modules, which are:
 | **Vista**                 | Colours which can be useful when creating a sunset, sunrise, or vista     |
 | **Flags**                 | (Approximate) colours which form some national/organisational flags       |
 
-- **1* : The luminosities of the shades are between 80uy and 235uy (inclusive).
+- **1* : The [luminosities](030-Luminosity.md "The Luminosity type and module") of the shades are between 80 and 235 (inclusive).
 
 Some examples are:
 
 - `StandardPalette.Basic.blackAndWhite` : Just black and white;
 - `StandardPalette.SevenShades.redDarkToLight` : Seven shades of red;
 - `StandardPalette.Shades.halloween` : For Hallow'een;
-- `StandardPalette.MultiColour.forestBerries` : Think of 1970's bathrooms and wallpaper;
+- `StandardPalette.MultiColour.forestBerries` : Various natural shades;
 - `StandardPalette.Vista.desert` : A desert sunset;
 - `StandardPalette.Flags.PrideRainbow` : The colours of the Pride rainbow flag.
 
-You can see visual examples of the standard palettes [here](https://github.com/GarryPatchett/QuickVectors.FSharp/blob/main/docs/QuickVectors.Core.FSharp/images/StandardPalette-Examples.png).
+You can see visual examples of the standard palettes [here](images/StandardPalette-Examples.png "Visual roll call of the standard palettes").
 
 Try experimenting with different palettes in various designs to see which you like best in certain situations.
 
@@ -184,7 +184,9 @@ Normal.Seq.byEquation NormalEquation.Linear 8
 //      ExpandedColourIndices = [| 0; 1; 2; 3; 4; 5; 6; 7 |] }
 ```
 
+> See the `QuickData.Core.FSharp` [documentation](https://www.nuget.org/packages/QuickData.Core.FSharp "QuickData.Core.FSharp package documentation") for more information about the Normal type.
+
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

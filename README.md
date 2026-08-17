@@ -17,12 +17,12 @@ Together these packages allow you to quickly create procedurally-generated vecto
 
 This QuickVectors.FSharp project contains four packages:
 
-| Package                           | What It's For                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **QuickVectors.Core.FSharp**      | Contains shared types and functionalities [(docs)](docs/QuickVectors.Core.FSharp/000-Overview.md "Core package documentation")                              |
-| **QuickVectors.Elements.FSharp**  | Contains types and functionality normally only used internally [(docs)](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation") |
-| **QuickVectors.Patterns.FSharp**  | Create designs from patterns of shapes                                                                                                                      |
-| **QuickVectors.Export.FSharp**    | Export designs (currently only to SVG) [(docs)](docs/QuickVectors.Export.FSharp/000-Overview.md "Export package documentation")                             |
+| Package                           | What It's For                                                                                                                             |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **QuickVectors.Core.FSharp**      | Contains shared types and functionalities [(docs)](docs/QuickVectors.Core.FSharp/000-Overview.md "Core package documentation")            |
+| **QuickVectors.Elements.FSharp**  | Contains types and functionality normally only used internally                                                                            |
+| **QuickVectors.Patterns.FSharp**  | Create designs from patterns of shapes [(docs)](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation")       |
+| **QuickVectors.Export.FSharp**    | Export designs (currently only to SVG) [(docs)](docs/QuickVectors.Export.FSharp/000-Overview.md "Export package documentation")           |
 
 You are not expected to install the first three packages manually but should install the `Export` package instead
 which will install all of the packages together at the same time.
@@ -33,9 +33,9 @@ The documentation for the `Core` package [here](docs/QuickVectors.Core.FSharp/00
 
 The documentation for the `Patterns` package [here](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation") can be referred to when creating designs from patterns.
 
-There is no user documentation for the `Elements` package as you would not normally use the contents manually.
-
 The documentation for the `Export` package [here](docs/QuickVectors.Export.FSharp/000-Overview.md "Export package documentation") tells you how to export designs.
+
+There is no user documentation for the `Elements` package as you would not normally use the contents manually. (The contents of this package might eventually become unavailable to developers.)
 
 Various types and modules are provided in the packages and the documentation for such can be found in the
 documentation for the relevant package.

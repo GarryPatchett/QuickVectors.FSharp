@@ -12,7 +12,7 @@ Luminosities can be used to create colours in an 8-bit RGB colour space.
     - [Ready-made Values](#ready-made-values)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
-> See the `QuickData.Core.FSharp` documentation for more information about the Normal type.
+> See the `QuickData.Core.FSharp` [documentation](https://www.nuget.org/packages/QuickData.Core.FSharp "QuickData.Core.FSharp package documentation") for more information about the Normal type.
 
 ## The Luminosity Type
 
@@ -154,5 +154,5 @@ These values are:
 
 ## Issues, Questions, and Suggestions
 
-You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp)* GitHub repository to report issues, 
+You can visit the *[QuickVectors.FSharp](https://github.com/GarryPatchett/QuickVectors.FSharp "Home page for the QuickVectors project")* GitHub repository to report issues, 
 ask questions, or make suggestions. You can also read about the changes across different versions in the release notes there.

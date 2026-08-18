@@ -36,7 +36,7 @@ A jiggle percentage can be created via the `JigglePercentage.fromFloat` function
 
 The value will be clamped to the range `minimum` to `maximum` (inclusive).
 
-When a jiggle percentage is printed to the screen the output will be `Jiggle(l)%` where `l` is the percentage.
+When a jiggle percentage is printed to the screen the output will be `Jiggle(p)%` where `p` is the percentage.
 For example, a jiggle percentage defined as 20.0 with `JigglePercentage.fromFloat 20.0` will be printed as `Jiggle(20)%`.
 
 ### Deconstruction

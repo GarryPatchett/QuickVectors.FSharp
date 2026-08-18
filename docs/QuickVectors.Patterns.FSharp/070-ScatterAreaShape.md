@@ -25,6 +25,10 @@ The cases are (in alphabetical order):
 
 To specify a scatter area shape simply supply its name, such as `ScatterAreaShape.Rectangular`.
 
+![Scatter Area Shape Examples Image](images/ScatterAreaShape-Examples.png "Scatter Area Shape Examples")
+
+(In the image above, the blue lines show the area over which the shapes will be scattered.)
+
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.

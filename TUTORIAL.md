@@ -19,7 +19,6 @@ This is a short tutorial for the QuickVectors.FSharp packages.
     - [Step 10 - Adding Some Colour Variation](#step-10---adding-some-colour-variation)
     - [Step 11 - Using A Different Grid Size](#step-11---using-a-different-grid-size)
     - [Step 12 - Adding An Offset](#step-12---adding-an-offset)
-    - [Step 13 - Varying The Stroke Thickness](#step-13---varying-the-stroke-thickness)
 - [What Next](#what-next)
 - [Samples](#samples)
 
@@ -94,8 +93,6 @@ you should have an SVG file in your current directory named "MyFirstDesign.svg".
 You can view this SVG file using a web browser or any other application which can display SVG files.
 
 When viewing the file you should see an eight-by-eight chessboard with alternating black- and white-filled squares, each with a thin black outline.
-
-![Tutorial Step 1 Image](/images/Tutorial-Step1.png "Tutorial Step 1")
 
 ### Viewing The Pattern
 
@@ -244,11 +241,7 @@ You can ignore the `Reordering`, `Modification`, and `Noise` fields of the fill 
 
 The two colours that you specified are ready-made colours and others are available or you can make your own (see later).
 
-Don't forget to use `Some fillDefinition` rather than just `fillDefinition`; this is explained a bit more later on.
-
 If you send the code to the FSI your design should have changed.
-
-![Tutorial Step 2 Image](/images/Tutorial-Step2.png "Tutorial Step 2")
 
 > **Note:** You specify the `Fill` field as `Some fillDefinition` because the `Fill` field is an Option.
 If you don't want the shapes to be filled then you can specify the `Fill` field as None.
@@ -301,8 +294,6 @@ Here you have created two new colours:
 
 You have also changed the fill definition to use the new colours.
 
-![Tutorial Step 3 Image](/images/Tutorial-Step3.png "Tutorial Step 3")
-
 ### Step 4 - Removing The Outline
 
 What if you don't like the black outlines? Well, you can remove them.
@@ -339,8 +330,6 @@ let fillDefinition =
 ```
 
 Here you have simply told the pattern to have no Stroke (None, rather than Some).
-
-![Tutorial Step 4 Image](/images/Tutorial-Step4.png "Tutorial Step 4")
 
 ## Step 5 - Adding Some Gaps
 
@@ -384,8 +373,6 @@ Here you have added a column gap of 40.0 and a row gap of 40.0.
 
 Both the column gap and the row gap are Option fields, so if you don't want one other the other, or both, you can set the one(s) you don't want to None.
 
-![Tutorial Step 5 Image](/images/Tutorial-Step5.png "Tutorial Step 5")
-
 ### Step 6 - Adding Some Rotation
 
 What if you want to rotate the shapes randomly? Not a problem.
@@ -428,8 +415,6 @@ Here you have used a ready-made rotation definition which rotates shapes randoml
 
 The rotation definition isn't an Option because, in this pattern, it's always available
 to be used even if it is not used in every circumstance.
-
-![Tutorial Step 6 Image](/images/Tutorial-Step6.png "Tutorial Step 6")
 
 ### Step 7 - Adding Shape Size Variation
 
@@ -484,8 +469,6 @@ The shape size definition isn't an Option because, in this pattern, it's always 
 
 Remember that you can use Intellisense at any time to get information about any field or type.
 
-![Tutorial Step 7 Image](/images/Tutorial-Step7.png "Tutorial Step 7")
-
 ### Step 8 - Changing the Shape
 
 And now you want to use a different shape? Easy.
@@ -532,8 +515,6 @@ let shapeSizeDefinition =
 ```
 
 Here you have simply change the `Shape` field to use a different shape.
-
-![Tutorial Step 8 Image](/images/Tutorial-Step8.png "Tutorial Step 8")
 
 ### Step 9 - Fills to Outlines
 
@@ -594,8 +575,6 @@ the default of 1.0 to 10.0, and changed the Fill and Stroke fields in the patter
 
 (The stroke width can be varied in lots of different ways.)
 
-![Tutorial Step 9 Image](/images/Tutorial-Step9.png "Tutorial Step 9")
-
 ### Step 10 - Adding Some Colour Variation
 
 And now you want some variety in the outline colours? Again, not a problem.
@@ -655,8 +634,6 @@ you can choose different numbers to get a design which you like and can recreate
 specifying that same number again. (All of the ready-made patterns, by default, use a new random
 seed randomly each time you generate the design.)
 
-![Tutorial Step 10 Image](/images/Tutorial-Step10.png "Tutorial Step 10")
-
 ### Step 11 - Using A Different Grid Size
 
 And now you want a different grid size? That's simple enough.
@@ -710,8 +687,6 @@ let shapeSizeDefinition =
 Here you have changed the grid size by speficying the number of columns and rows.
 
 As with a lot of types, there are also a variety of ready-made values for you to use without specifying them manually.
-
-![Tutorial Step 11 Image](/images/Tutorial-Step11.png "Tutorial Step 11")
 
 ## Step 12 - Adding An Offset 
 
@@ -772,67 +747,6 @@ even-numbered rows approximately in the middle of the gaps between the shapes on
 
 As with some other fields, the grid offset field is an Option, so don't forget to use Some if you aren't using None.
 
-![Tutorial Step 12 Image](/images/Tutorial-Step12.png "Tutorial Step 12")
-
-## Step 13 - Varying The Stroke Thickness 
-
-And now you want the thicknesses of the strokes to vary? Again, easily done.
-
-```fsharp
-#r "nuget: QuickVectors.Export.FSharp"
-
-open System.IO 
-open QuickVectors.FSharp 
-open QuickVectors.Patterns.FSharp 
-open QuickVectors.Export.Svg.FSharp 
-
-let pink = Colour.fromBytes 252uy 151uy 151uy 
-
-let lightBlue = Colour.fromHexString "97D5FC"
-
-let fillDefinition = 
-    {   FillDefinition.ColourScheme = 
-            ColourScheme.AlternatingBetween (First = pink, Second = lightBlue) 
-        Reordering = None 
-        Modification = None 
-        Noise = None }
-
-// Create a new stroke width definition.
-// (The Profile is Random by default.)
-let strokeWidthDefinition = StrokeWidthDefinition.fromFloats 6 16 
-
-let strokeDefinition = 
-    {   (fillDefinition |> StrokeDefinition.fromFillDefinition) with
-            // Using the new stroke width definition.
-            Width = strokeWidthDefinition 
-            Noise = Some Noise.More }
-
-let shapeSizeDefinition = 
-    {   ShapeSizeDefinition.fullRangeRandom with 
-            WidthRange = ShapeDimensionRange.fiftyAndAbove
-            HeightsEqualWidths = true }
-
-{   ShapeGrid.chessBoard with 
-        RandomSeed = RandomSeed.fromInt 567
-        Shape = Shape.RoundedRectanglePath
-        ShapeSize = shapeSizeDefinition 
-        Rotation = RotationDefinition.fourtyFivesRandom
-        GridSize = GridSize.fromColumnsAndRows 6 10 
-        ColumnGap = 40.0 |> ColumnGap.fromFloat |> Some
-        RowGap = 40.0 |> RowGap.fromFloat |> Some
-        GridOffset = 70.0 |> GridOffset.alternating |> Some
-        Fill = None
-        Stroke = Some strokeDefinition 
-} 
-|> ShapeGrid.generate 
-|> Svg.export SvgExportSettings.standard
-|> fun svg -> File.WriteAllText(@"MyFirstDesign.svg", svg) 
-```
-
-Here you have created a new stroke width definition and used it as part of the stroke definition.
-
-![Tutorial Step 13 Image](/images/Tutorial-Step13.png "Tutorial Step 13")
-
 ## What Next
 
 And I could go on and on for quite some time as there are lots of fields and lots of possibilities for each of them, but I won't.
@@ -852,4 +766,4 @@ Sample designs are available which show you what the shapes, profiles, standard 
 
 It is recommended that you look at the samples and keep them handy to refer to them as necessary.
 
-The documentation for the `Export` package shows you how to generate the samples.
+The documentation [here](QuickVectors.Export.FSharp/900-Samples.md "How to generate the samples") in the `Export` package shows you how to generate the samples.

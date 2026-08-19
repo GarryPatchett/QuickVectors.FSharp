@@ -766,4 +766,4 @@ Sample designs are available which show you what the shapes, profiles, standard 
 
 It is recommended that you look at the samples and keep them handy to refer to them as necessary.
 
-The documentation [here](QuickVectors.Export.FSharp/900-Samples.md "How to generate the samples") in the `Export` package shows you how to generate the samples.
+The documentation [here](docs/QuickVectors.Export.FSharp/900-Samples.md "How to generate the samples") in the `Export` package shows you how to generate the samples.

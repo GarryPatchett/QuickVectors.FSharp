@@ -17,21 +17,21 @@ Together these packages allow you to quickly create procedurally-generated vecto
 
 This QuickVectors.FSharp project contains four packages:
 
-| Package                           | What It's For                                                                                                                             |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **QuickVectors.Core.FSharp**      | Contains shared types and functionalities [(docs)](docs/QuickVectors.Core.FSharp/000-Overview.md "Core package documentation")            |
-| **QuickVectors.Elements.FSharp**  | Contains types and functionality normally only used internally                                                                            |
-| **QuickVectors.Patterns.FSharp**  | Create designs from patterns of shapes [(docs)](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation")       |
-| **QuickVectors.Export.FSharp**    | Export designs (currently only to SVG) [(docs)](docs/QuickVectors.Export.FSharp/000-Overview.md "Export package documentation")           |
+| Package                           | What It's For | Documentation | Package |
+| --------------------------------- | ------------- | ------------- | ------- |
+| **QuickVectors.Core.FSharp**      | Contains shared types and functionalities | [Core docs](docs/QuickVectors.Core.FSharp/000-Overview.md "Core package documentation") | [Core package](https://www.nuget.org/packages/QuickVectors.Core.FSharp "Core package") |
+| **QuickVectors.Elements.FSharp**  | Contains types and functionality normally only used internally | N/A | [Elements package](https://www.nuget.org/packages/QuickVectors.Elements.FSharp "Elements package") |
+| **QuickVectors.Patterns.FSharp**  | Create designs from patterns of shapes | [Patterns docs](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation") | [Patterns package](https://www.nuget.org/packages/QuickVectors.Patterns.FSharp "Patterns package") |
+| **QuickVectors.Export.FSharp**    | Export designs (currently only to SVG) | [Export docs](docs/QuickVectors.Export.FSharp/000-Overview.md "Export package documentation") | [Export package](https://www.nuget.org/packages/QuickVectors.Export.FSharp "Export package") |
 
-You are not expected to install the first three packages manually but should install the `Export` package instead
-which will install all of the packages together at the same time.
+You are not expected to install the first two packages manually but should install the `Patterns` and `Export` packages instead
+which will install everything that is necessary.
 
-Once you have installed the `Export` package you can quickly generate patterns and export them to SVG documents.
+Once you have installed the `Patterns` and `Export` packages you can quickly generate patterns and export them to SVG documents.
 
-The documentation for the `Core` package [here](docs/QuickVectors.Core.FSharp/000-Overview.md "Core package documentation") will be very useful when creating patterns.
+The documentation for the `Core` package [here](docs/QuickVectors.Core.FSharp/000-Overview.md "Core package documentation") contains very useful general information.
 
-The documentation for the `Patterns` package [here](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation") can be referred to when creating designs from patterns.
+The documentation for the `Patterns` package [here](docs/QuickVectors.Patterns.FSharp/000-Overview.md "Patterns package documentation") can be referred to when creating patterns.
 
 The documentation for the `Export` package [here](docs/QuickVectors.Export.FSharp/000-Overview.md "Export package documentation") tells you how to export designs.
 
@@ -53,7 +53,7 @@ See the "licence.md" file for each package to get more information.
 The packages in this project contain a lot of types and modues and trying to understand them all before trying
 to do anything with them would be a difficult task.
 
-Because of this it is recommended that you read the [short tutorial](TUTORIAL.md "Project tutorial") (in the TUTORIAL.md file) first so that you
+Because of this it is recommended that you read the [short tutorial](tutorial.md "Project tutorial") (in the TUTORIAL.md file) first so that you
 can get used to how to use some of the various functionalities in a step-by-step fashion.
 
 There's nothing particularly complicated in these packages but the shear amount of 'stuff' to learn can

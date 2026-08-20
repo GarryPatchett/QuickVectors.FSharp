@@ -35,16 +35,16 @@ If you are just looking to explore the project, or use it to produce something q
 can access the project like this in a script:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 ```
 
-Or, to use it in your own code, add the `QuickVectors.Export.FSharp` Nuget package to your F# project, like this:
+Or, to use it in your own code, add the `QuickVectors.Patterns.FSharp` and `QuickVectors.Export.FSharp` Nuget packages to your F# project, like this:
 
 ```console
+dotnet add package QuickVectors.Patterns.FSharp
 dotnet add package QuickVectors.Export.FSharp
 ```
-
-(The `Export` package is being referenced as it will 'pull in' the other packages as necessary.)
 
 The examples in this tutorial use scripts and the FSI because that's the simplest way to get things happening. The only
 difference is how you install/reference the packages as mentioned above, everything else is the same either way.
@@ -66,6 +66,7 @@ You can start by making a very simple design based on a ready-made pattern.
 In your code editor, create a new script file called "MyFirstDesign.fsx" and copy the code below into that file:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 // Required for saving the file.
@@ -211,6 +212,7 @@ Now, what if you want red- and blue-filled squares instead? Well, you would need
 Change the code as shown below:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -261,6 +263,7 @@ Change the code as shown below and send it to the FSI:
 (Comments from previous steps have been removed for clarity.)
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -308,6 +311,7 @@ What if you don't like the black outlines? Well, you can remove them.
 Change the code as shown below and send it to the FSI:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -347,6 +351,7 @@ What if you want to have some gaps between the squares. Well, that's easy enough
 Change the code as shown below and send it to the FSI:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -391,6 +396,7 @@ What if you want to rotate the shapes randomly? Not a problem.
 Change the code as shown below and send it to the FSI:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -436,6 +442,7 @@ And now you want to make the shapes different sizes? Again, not a difficult thin
 Change the code as shown below and send it to the FSI:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -491,6 +498,7 @@ And now you want to use a different shape? Easy.
 Change the code as shown below and send it to the FSI:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -540,6 +548,7 @@ But now you want outlined shapes instead of filled ones? Okay, we can do that.
 Change the code as shown below and send it to the FSI:
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -599,6 +608,7 @@ the default of 1.0 to 10.0, and changed the Fill and Stroke fields in the patter
 And now you want some variety in the outline colours? Again, not a problem.
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -660,6 +670,7 @@ control what they do as much as if you are specific with the RandomSeed value.)
 And now you want a different grid size? That's simple enough.
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -716,6 +727,7 @@ As with a lot of types, there are also a variety of ready-made values for you to
 What if you want to offset the grid a bit? That's easily done.
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 
@@ -777,6 +789,7 @@ As with some other fields, the grid offset field is an Option, so don't forget t
 And now you want the thicknesses of the strokes to vary? Again, easily done.
 
 ```fsharp
+#r "nuget: QuickVectors.Patterns.FSharp"
 #r "nuget: QuickVectors.Export.FSharp"
 
 open System.IO 

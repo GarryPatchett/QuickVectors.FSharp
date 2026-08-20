@@ -26,9 +26,10 @@ Provides a way to generate sequences of colours.
 The `ColourScheme` **type** defines a discriminated union which can be used to generate a sequence of [Colours](040-Colour.md "The Colour type and module").
 
 The colours generated are options of either `None` (no colour), or `Some <colour>`.
-When a colour is mentioned below it is really a `Some <colour>`, for example, Black is really `Some Colour.black`.
+When an output colour is mentioned below it is really a `Some <colour>`, for example, Black is really `Some Colour.black`.
 
 There are lots of colour scheme cases to choose from, each giving a different result.
+
 Some schemes are simply 'shortcuts' defined as a way to specify another often-used scheme more
 quickly, e.g. `AllBlack` instead of `AllSame Colour.black`.
 
@@ -49,82 +50,100 @@ Where there is a choice of full, dark, mid-tones, or light greyscales or colours
 
 These schemes produce sequences where every element is the same.
 
-- `AllNoColour` : All colours will be None;
-- `AllBlack` : All colours will be Black;
-- `AllWhite` : All colours will be White;
-- `AllSame` : All colours will be that which is specified. 
+| Colour Scheme     | Modifier(s)                                           | All Colours Will Be       |
+| ----------------- | ----------------------------------------------------- | ------------------------- |
+| **AllNoColour**   | -                                                     | None                      |
+| **AllBlack**      | -                                                     | Black                     |
+| **AllWhite**      | -                                                     | White                     |
+| **AllSame**       | [Colour](040-Colour.md "The Colour type and module")  | That which is specified   |
 
 ### Alternating Schemes
 
 These schemes produce sequences where two elements are repeated one after the other.
 
-- `AlternatingBlackAndWhite` : Colours alternate between Black and White;
-- `AlternatingBlackAndNoColour` : Colours alternate between Black and None;
-- `AlternatingWhiteAndNoColour` : Colours alternate between White and None;
-- `AlternatingBetween` : Colours alternate between those specified.
+| Colour Scheme                     | Modifier(s)                                               | Colours Alternate Between     |
+| --------------------------------- | --------------------------------------------------------- | ----------------------------- |
+| **AlternatingBlackAndWhite**      | -                                                         | Black and White               |
+| **AlternatingBlackAndNoColour**   | -                                                         | Black and None                |
+| **AlternatingWhiteAndNoColour**   | -                                                         | White and None                |
+| **AlternatingBetween**            | Two [Colours](040-Colour.md "The Colour type and module") | Those specified               |
 
 ### Cycled Schemes
 
 These schemes produce sequences where elements from a list are repeated in order.
 
-- `CycledFrom` : The colours in the specified list will be cycled: first colour, second colour, etc.
+| Colour Scheme                     | Modifier(s)                                               | Colours Cycled From                                           |
+| --------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------- |
+| **CycledFrom**                    | [Colour](040-Colour.md "The Colour type and module") list | The specified list, e.g. first colour, second colour, etc.    |
 
 ### Random Schemes
 
 These schemes produce sequences where elements are selected at random.
 
-- `RandomBlackOrWhite` : Black and White will be chosen at random;
-- `RandomBlackOrNoColour` : Black and None will be chosen at random;
-- `RandomWhiteOrNoColour` : White and None will be chosen at random;
-- `RandomBlackOrWhiteOrNoColour` : Black, White, and None will be chosen at random;
-- `RandomFrom` : Colours will be chosen at random from the specified list.
+| Colour Scheme                     | Modifier(s)                                               | Colours Selected From     |
+| --------------------------------- | --------------------------------------------------------- | ------------------------- |
+| **RandomBlackOrWhite**            | -                                                         | Black and White           |
+| **RandomBlackOrNoColour**         | -                                                         | Black and None            |
+| **RandomWhiteOrNoColour**         | -                                                         | White and None            |
+| **RandomBlackOrWhiteOrNoColour**  | -                                                         | Black, White, and None    |
+| **RandomFrom**                    | [Colour](040-Colour.md "The Colour type and module") list | The specified list        |
 
 ### Tombola Schemes
 
 These schemes produce sequences where elements are (endlessly) shuffled before being selected.
 
-- `TombolaBlackOrWhite` : Black and White will be shuffled;
-- `TombolaBlackOrNoColour` : Black and None will be shuffled;
-- `TombolaWhiteOrNoColour` : White and None will be shuffled;
-- `TombolaBlackOrWhiteOrNoColour` : Black, White, and None will be shuffled;
-- `TombolaFrom` : The colours in the specified list will be shuffled before being selected.
+| Colour Scheme                     | Modifier(s)                                               | Colours Selected From     |
+| --------------------------------- | --------------------------------------------------------- | ------------------------- |
+| **TombolaBlackOrWhite**           | -                                                         | Black and White           |
+| **TombolaBlackOrNoColour**        | -                                                         | Black and None            |
+| **TombolaWhiteOrNoColour**        | -                                                         | White and None            |
+| **TombolaBlackOrWhiteOrNoColour** | -                                                         | Black, White, and None    |
+| **TombolaFrom**                   | [Colour](040-Colour.md "The Colour type and module") list | The specified list        |
 
 ### Palette Schemes
 
 These schemes produce sequences of colours which are selected from a palette.
 
-- `RandomFromPalette` : Colours will be chosen at random from the palette;
-- `TombolaFromPalette` : The colours in the palette will be repeatedly shuffled before being chosen in order;
-- `CycledFromPalette` : The colours in the palette will be cycled: first colour, second colour, etc.
+| Colour Scheme                     | Modifier(s)                                               | Colours Selected By           |
+| --------------------------------- | --------------------------------------------------------- | ----------------------------- |
+| **RandomFromPalette**             | [Palette](050-Palette.md "The Palette type and module")   | Random Order                  |
+| **TombolaFromPalette**            | [Palette](050-Palette.md "The Palette type and module")   | Tombola (shuffled endlessly)  |
+| **CycledFromPalette**             | [Palette](050-Palette.md "The Palette type and module")   | Cycled (chosen in order)      |
 
 ### Greyscale Schemes
 
 These schemes produce sequences of randomly generated greyscale colours.
 
-- `RandomGreyscaleFull` : All greyscale colours are possible;
-- `RandomGreyscaleDark` : Only dark greyscale colours are possible;
-- `RandomGreyscaleMidTones` : Only greyscale colours with mid-tones are possible;
-- `RandomGreyscaleLight` : Only light greyscale colours are possible;
-- `RandomGreyscaleBetween` : A sequence of greyscale colours will be generated where the luminosity for each will be chosen at random between the luminosities of the colours specified.
+| Colour Scheme                     | Modifier(s)                                               | Greyscale Range                                                                   |
+| --------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **RandomGreyscaleFull**           | -                                                         | All greyscales                                                                    |
+| **RandomGreyscaleDark**           | -                                                         | Only dark greyscales                                                              |
+| **RandomGreyscaleMidTones**       | -                                                         | Only mid-tone greyscales                                                          |
+| **RandomGreyscaleLight**          | -                                                         | Only light greyscales                                                             |
+| **RandomGreyscaleBetween**        | Two [Colours](040-Colour.md "The Colour type and module") | Luminosities chosen at random between the luminosities of the colours specified   |
 
 ### Colour Schemes
 
 These schemes produce sequences of randomly generated colours.
 
-- `RandomColourFull` : All colours are possible;
-- `RandomColourDark` : Only dark colours are possible;
-- `RandomColourMidTones` : Only colours with mid-tones are possible;
-- `RandomColourLight` : Only light colours are possible.
+| Colour Scheme                     | Modifier(s)       | Colour Range              |
+| --------------------------------- | ----------------- | ------------------------- |
+| **RandomColourFull**              | -                 | All colours               |
+| **RandomColourDark**              | -                 | Only dark colours         |
+| **RandomColourMidTones**          | -                 | Only mid-tone colours     |
+| **RandomColourLight**             | -                 | Only light colours        |
 
 ### Special Schemes
 
 These schemes produce sequences of colours according to an equation, a gradient, or a function.
 
-- `GreyscaleByEquation` : Greyscale colours will be generated where their luminosities are defined by the given equation;
-- `GreyscaleByGradient` : Greyscale colours will be generated where their luminosities are defined by the specified gradient pattern and orientation;
-- `GreyscaleLinear` : Greyscale colours will be generated where their luminosities increase in a linear fashion;
-- `GreyscaleLinearBounce` : Greyscale colours will be generated where their luminosities increase and then decrease in a linear fashion;
-- `GreyscaleBell` : Greyscale colours will be generated where their luminosities increase and decrease to form a 'bell' shape.
+| Colour Scheme                     | Modifier(s)                           | Greyscales Produced Where Luminosities                        |
+| --------------------------------- | ------------------------------------- | ------------------------------------------------------------- |
+| **GreyscaleByEquation**           | NormalEquation                        | Are defined by the given equation                             |
+| **GreyscaleByGradient**           | GradientPattern & GradientOrientation | Are defined by the specified gradient pattern and orientation |
+| **GreyscaleLinear**               | -                                     | Increase in a linear fashion                                  |
+| **GreyscaleLinearBounce**         | -                                     | Increase and then decrease in a linear fashion                |
+| **GreyscaleBell**                 | BellShape & BellPosition              | Increase and decrease to form a 'bell' shape                  |
 
 ## The Colour Scheme Module
 

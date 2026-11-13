@@ -108,7 +108,7 @@ assign it to a value (like you would any other F# value) and you will see someth
 {   // The random seed used to generate random values.
     RandomSeed = Random(1009235079) 
     // The shape to be used.
-    Shape = Rectangle 
+    Shape = Rectangle (Rectangle.Standard AsElement) 
     ShapeSize = { // The range of shape widths.
                   WidthRange = ShapeDimOnly(100) 
                   // The profile used to generate the shape widths.
@@ -185,6 +185,8 @@ assign it to a value (like you would any other F# value) and you will see someth
                               // How/whether the stroke widths will be further modified.
                               Modification = None 
                             }
+                    // How line/path segments will be joined.
+                    CornerPolicy = RoundCorners 
                     // How/whether the stroke colours will be reordered.
                     Reordering = None 
                     // How/whether the stroke colours will be further modified.
@@ -523,8 +525,8 @@ let shapeSizeDefinition =
             HeightsEqualWidths = true }
 
 {   ShapeGrid.chessBoard with 
-        // Use different shape.
-        Shape = Shape.RoundedRectanglePath 
+        // Specify different shape (lots of ways to do this).
+        Shape = Shape.Rectangle.roundedAsPath 
         ShapeSize = shapeSizeDefinition 
         Rotation = RotationDefinition.fourtyFivesRandom
         ColumnGap = 40.0 |> ColumnGap.fromFloat |> Some
@@ -537,13 +539,13 @@ let shapeSizeDefinition =
 |> fun svg -> File.WriteAllText(@"MyFirstDesign.svg", svg) 
 ```
 
-Here you have simply change the `Shape` field to use a different shape.
+Here you have simply changed the `Shape` field to use a different shape.
 
 ![Tutorial Step 8 Image](/images/Tutorial-Step8.png "Tutorial Step 8")
 
 ### Step 9 - Fills to Outlines
 
-But now you want outlined shapes instead of filled ones? Okay, we can do that.
+But now you want outlined shapes instead of filled ones? Okay, you can do that.
 
 Change the code as shown below and send it to the FSI:
 
@@ -581,7 +583,7 @@ let shapeSizeDefinition =
             HeightsEqualWidths = true }
 
 {   ShapeGrid.chessBoard with 
-        Shape = Shape.RoundedRectanglePath
+        Shape = Shape.Rectangle.roundedAsPath
         ShapeSize = shapeSizeDefinition 
         Rotation = RotationDefinition.fourtyFivesRandom
         ColumnGap = 40.0 |> ColumnGap.fromFloat |> Some
@@ -642,7 +644,7 @@ let shapeSizeDefinition =
 {   ShapeGrid.chessBoard with 
         // Use a specific random seed for every generation.
         RandomSeed = RandomSeed.fromInt 567
-        Shape = Shape.RoundedRectanglePath
+        Shape = Shape.Rectangle.roundedAsPath
         ShapeSize = shapeSizeDefinition 
         Rotation = RotationDefinition.fourtyFivesRandom
         ColumnGap = 40.0 |> ColumnGap.fromFloat |> Some
@@ -701,7 +703,7 @@ let shapeSizeDefinition =
 
 {   ShapeGrid.chessBoard with 
         RandomSeed = RandomSeed.fromInt 567
-        Shape = Shape.RoundedRectanglePath
+        Shape = Shape.Rectangle.roundedAsPath
         ShapeSize = shapeSizeDefinition 
         Rotation = RotationDefinition.fourtyFivesRandom
         // Change the grid to have six columns and ten rows.
@@ -758,7 +760,7 @@ let shapeSizeDefinition =
 
 {   ShapeGrid.chessBoard with 
         RandomSeed = RandomSeed.fromInt 567
-        Shape = Shape.RoundedRectanglePath
+        Shape = Shape.Rectangle.roundedAsPath
         ShapeSize = shapeSizeDefinition 
         Rotation = RotationDefinition.fourtyFivesRandom
         GridSize = GridSize.fromColumnsAndRows 6 10 
@@ -825,7 +827,7 @@ let shapeSizeDefinition =
 
 {   ShapeGrid.chessBoard with 
         RandomSeed = RandomSeed.fromInt 567
-        Shape = Shape.RoundedRectanglePath
+        Shape = Shape.Rectangle.roundedAsPath
         ShapeSize = shapeSizeDefinition 
         Rotation = RotationDefinition.fourtyFivesRandom
         GridSize = GridSize.fromColumnsAndRows 6 10 
@@ -864,3 +866,11 @@ Sample designs are available which show you what the shapes, profiles, standard 
 It is recommended that you look at the samples and keep them handy to refer to them as necessary.
 
 The documentation [here](docs/QuickVectors.Export.FSharp/900-Samples.md "How to generate the samples") in the `Export` package shows you how to generate the samples.
+
+## Templates 
+
+Some templates are available which can give you a starting point for your own designs.
+
+They might come in handy from time to time when you want to create something quickly.
+
+The documentation [here](docs/QuickVectors.Export.FSharp/910-Templates.md "Ready-made templates") in the `Export` package gives more information.

@@ -26,9 +26,9 @@ Because of this it is recommended that you take the time to understand what each
 
 The cases are:
 
-| Case Name **1*           | Normal.Seq Sequence **2*                         |
+| Case Name                | Normal.Seq Sequence **1*                         |
 | ------------------------ | ------------------------------------------------ |
-| **Random** **3*          | random                                           |
+| **Random** **2*          | random                                           |
 | **LowValue**             | repeatedMinimum                                  |
 | **OneThird**             | repeatedOneThird                                 |
 | **OneHalf**              | repeatedOneHalf                                  |
@@ -54,9 +54,8 @@ The cases are:
 | **EaseBounceOut**        | byEquation NormalEquation.EaseBounceOut          |
 | **EaseBounceInOut**      | byEquation NormalEquation.EaseBounceInOut        |
 
-- **1* : The name of the DU case, e.g. `Profile.Linear`.
-- **2* : The `Normal.Seq` functionality which is used to generate the values. See the relevant `QuickData.Numbers.FSharp` documentation for more information.
-- **3* : The default case.
+- **1* : The `Normal.Seq` functionality which is used to generate the values. See the relevant `QuickData.Numbers.FSharp` documentation for more information.
+- **2* : The default case.
 
 To specify a profile simply supply its name, such as `Profile.Linear`.
 

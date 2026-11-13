@@ -18,17 +18,19 @@ Colours in an 8-bit RGB colour space which can be used in designs and patterns.
 
 The `Colour` **type** defines a single-case discriminated union which specifies a colour in an 8-bit RGB colour space.
 
-The colour type has three fields:
+The colour type has four fields:
 
 - `Red` : The red component of the colour;
 - `Green` : The green component of the colour;
-- `Blue` : The blue component of the colour.
+- `Blue` : The blue component of the colour;
+- `Opacity` : The opacity component of the colour.
 
-Each of these fields is a [Luminosity](030-Luminosity.md "The Luminosity type and module").
+Each of the colour fields - Red, Green, and Blue - is a [Luminosity](030-Luminosity.md "The Luminosity type and module") 
+while the Opacity field is an [Opacity](036-Opacity.md "The Opacity type and module").
 
-All combinations of luminosities are valid.
+All combinations of luminosities/opacities are valid.
 
-You can construct a colour by simply supplying the luminosities as required or you can use one of the convenience functions
+You can construct a colour by simply supplying the luminosities as required, or you can use one of the convenience functions
 provided by the `Colour` **module** (see below).
 
 The type provides one property for obtaining information from a colour, which is:
@@ -38,12 +40,17 @@ The type provides one property for obtaining information from a colour, which is
 
 When you print a colour value to the screen it will be formatted as follows:
 
-- `Black` : Black;
-- `White` : White;
-- `Grey(lum)` : Greyscale where *lum* is the decimal luminosity (of each component);
-- `Rgb(red,green,blue)` : Full Colour where *red*, *green*, and *blue* are the decimal luminosity component values.
+- `Black` : Black, fully-opaque;
+- `Black(AA%)` : Black where *AA* is the percentage opacity (if not fully-opaque);
+- `White` : White, fully-opaque;
+- `White(AA%)` : White where *AA* is the percentage opacity (if not fully-opaque);
+- `Grey(lum)` : Greyscale where *lum* is the decimal luminosity (of each component), fully-opaque;
+- `Grey(lum/AA%)` : Greyscale where *lum* is the decimal luminosity (of each component), and *AA* is the percentage opacity (if not fully-opaque);
+- `Rgb(red,green,blue)` : Full Colour where *red*, *green*, and *blue* are the decimal luminosity component values, fully-opaque;
+- `Rgb(red,green,blue/AA%)` : Full Colour where *red*, *green*, and *blue* are the decimal luminosity components, and *AA* is the percentage opacity (if not fully-opaque).
 
-> **Note:** There is currently no provision for colour transparency in this package; all colours are fully-opaque.
+> **Note:** While colours can be generated with a non-fully-opaque opacity you can only, at the moment,
+manually create colours which are fully-opaque. (This is expected to change in a later version.)
 
 ## The Colour Module
 
@@ -88,12 +95,25 @@ The deconstruction functions provided are:
 
 - `toByteTuple` : Returns a new tuple containing three bytes which correspond to
                     the red, green, and blue components of the colour in that order;
+- `toByteTupleWithOpacity` : Returns a new tuple containing four bytes which correspond to
+                    the red, green, and blue components of the colour and the opacity in that order;
 - `toLuminosityTuple` : Returns a new tuple containing three luminosities which correspond to
                     the red, green, and blue components of the colour in that order;
+- `toLuminosityTupleWithOpacity` : Returns a new tuple containing four luminosities which correspond to
+                    the red, green, and blue components of the colour and the opacity in that order;
 - `toIntTuple` : Returns a new tuple containing three ints which correspond to
                     the red, green, and blue components of the colour in that order;
+- `toIntTupleWithOpacity` : Returns a new tuple containing four ints which correspond to
+                    the red, green, and blue components of the colour and the opacity in that order;
 - `toHexString` : Returns a string containing the red, green, and blue components of the
-                    colour, each as a two-character hexadecimal value, in that order.
+                    colour, each as a two-character hexadecimal value, in that order;
+- `toHexStringWithOpacity` : Returns a string containing the red, green, and blue components of the
+                    colour and the opacity, each as a two-character hexadecimal value, in that order;
+- `lowestLuminosity` : Returns the lowest luminosity of a colour;
+- `averageLuminosity` : Returns the average luminosity of a colour;
+- `highestLuminosity` : Returns the highest luminosity of a colour.
+
+> **Note**: The luminosity calculations do not take the opacity into account; they only work with the luminosities of the colour.
 
 ### Construction and Deconstruction Code Examples
 
@@ -153,9 +173,14 @@ The variation functions provided are:
 - `darker` : Returns a new colour where the components have been made darker than those in the original;
 - `lighter` : Returns a new colour where the components have been made lighter than those in the original.
 
-> **Note:** Some of the above functions will, depending upon the original colour, simply return the original
+> **Notes:** 
+
+>
+> 1. Some of the above functions will, depending upon the original colour, simply return the original
 colour when the function cannot have any effect. For example, reversing the components of a greyscale colour
 will have no effect because they all have the same value.
+>
+> 2. None of the above functions affect, or are affected by, the Opacity of the colour; the Opacity is simply 'passed through'.
 
 ### Variation Code Examples
 
@@ -197,6 +222,8 @@ let lighter =
 
 The `Colour` **module** also provides various ready-made values which make it easy to specify some often-used colours.
 
+> **Note:** All of the ready-made colours are fully-opaque.
+
 These values are:
 
 #### Basics
@@ -224,6 +251,18 @@ These are values for grey colours where the component values are equal.
 - `brightRed` = Rgb(255,0,0) ; A colour where the red component value is at the maximum and the others are at the minimum;
 - `brightGreen` = Rgb(0,255,0) ; A colour where the green component value is at the maximum and the others are at the minimum;
 - `brightBlue` = Rgb(0,0,255) ; A colour where the blue component value is at the maximum and the others are at the minimum.
+
+#### Mid Colours
+
+- `midRed` = Rgb(140,20,20) ; A mid red with a touch of the other colours;
+- `midGreen` = Rgb(20,140,20) ; A mid green with a touch of the other colours;
+- `midBlue` = Rgb(20,20,140) ; A mid blue with a touch of the other colours.
+
+#### Dark Colours
+
+- `darkRed` = Rgb(70,10,10) ; A dark red with a touch of the other colours;
+- `darkGreen` = Rgb(10,70,10) ; A dark green with a touch of the other colours;
+- `darkBlue` = Rgb(10,10,70) ; A dark blue with a touch of the other colours.
 
 ## Issues, Questions, and Suggestions
 

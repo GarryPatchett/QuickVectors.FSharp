@@ -13,7 +13,7 @@ Defines a tessellating shape which can be used in a tessellation pattern.
 
 The `Tessellator` **type** defines a discriminated union used to specify the tessellating shape in a tessellation pattern.
 
-The cases are (in aphabetical order):
+The cases are (in alphabetical order):
 
 | Case Name                     | Description                                                           |
 | ----------------------------- | --------------------------------------------------------------------- | 

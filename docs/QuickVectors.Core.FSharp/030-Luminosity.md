@@ -59,6 +59,7 @@ The deconstruction functions provided are:
 
 - `toByte` : Returns the value of a luminosity as a byte;
 - `toInt` : Returns the value of a luminosity as an int;
+- `toFloat` : Returns the value of a luminosity as a float;
 - `toNormal` : Returns the value of a luminosity as a Normal;
 - `toString` : Returns the value of the luminosity as a decimal string (one, two, or three characters, depending on value);
 - `toPaddedString` : Returns the value of the luminosity as a decimal string (zero-padded, always three characters);

@@ -90,9 +90,11 @@ let weights =
 
 The variation functions provided are:
 
-- `rev` : Creates a new palette where the colours and weights of the original are in reverse order;
-- `lighter` : Creates a new palette where the colours of the original are lighter;
-- `darker` : Creates a new palette where the colours of the original are darker.
+Returns a copy of the palette where...
+
+- `rev` : ...the colours and weights are in reverse order of those in the original;
+- `lighter` : ...the colours are lighter than those in the original;
+- `darker` : ...the colours are darker than those in the original.
 
 ### Variation Code Examples
 

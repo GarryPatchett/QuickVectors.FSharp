@@ -13,7 +13,7 @@ Defines a form which can be used in a pane pattern.
 
 The `PaneForm` **type** defines a discriminated union used to specify the form of a pane pattern.
 
-The cases are (in aphabetical order):
+The cases are (in alphabetical order):
 
 | Case Name                     | Pane Is Made From                                                     |
 | ----------------------------- | --------------------------------------------------------------------- |

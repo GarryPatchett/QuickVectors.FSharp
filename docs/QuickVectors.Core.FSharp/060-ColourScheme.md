@@ -120,30 +120,38 @@ These schemes produce sequences of randomly generated greyscale colours.
 | **RandomGreyscaleDark**           | -                                                         | Only dark greyscales                                                              |
 | **RandomGreyscaleMidTones**       | -                                                         | Only mid-tone greyscales                                                          |
 | **RandomGreyscaleLight**          | -                                                         | Only light greyscales                                                             |
-| **RandomGreyscaleBetween**        | Two [Colours](040-Colour.md "The Colour type and module") | Luminosities chosen at random between the luminosities of the colours specified   |
+| **RandomGreyscaleBetween**        | Two [Colour](040-Colour.md "The Colour type and module")s | Luminosities chosen at random between the luminosities of the colours specified   |
 
 ### Colour Schemes
 
 These schemes produce sequences of randomly generated colours.
 
-| Colour Scheme                     | Modifier(s)       | Colour Range              |
-| --------------------------------- | ----------------- | ------------------------- |
-| **RandomColourFull**              | -                 | All colours               |
-| **RandomColourDark**              | -                 | Only dark colours         |
-| **RandomColourMidTones**          | -                 | Only mid-tone colours     |
-| **RandomColourLight**             | -                 | Only light colours        |
+| Colour Scheme                     | Modifier(s)                                               | Colour Range                                                                      |
+| --------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **RandomColourFull**              | -                                                         | All colours                                                                       |
+| **RandomColourDark**              | -                                                         | Only dark colours                                                                 |
+| **RandomColourMidTones**          | -                                                         | Only mid-tone colours                                                             |
+| **RandomColourLight**             | -                                                         | Only light colours                                                                |
+| **RandomColourBetween** **1*      | Two [Colour](040-Colour.md "The Colour type and module")s | Luminosities chosen at random between the luminosities of the colours specified   |
+
+- **1* : For example, given colours with the hex values of "1050B0" and "40A0F0", the red luminosities will
+            be between "10" and "40", the green luminosities will be between "50" and "A0", and the blue
+            luminosities will be between "B0" and "F0" (all inclusive). The luminosities of the specified
+            components are sorted internally so you can specify the high/low values in any order.
 
 ### Special Schemes
 
 These schemes produce sequences of colours according to an equation, a gradient, or a function.
 
-| Colour Scheme                     | Modifier(s)                           | Greyscales Produced Where Luminosities                        |
-| --------------------------------- | ------------------------------------- | ------------------------------------------------------------- |
-| **GreyscaleByEquation**           | NormalEquation                        | Are defined by the given equation                             |
-| **GreyscaleByGradient**           | GradientPattern & GradientOrientation | Are defined by the specified gradient pattern and orientation |
-| **GreyscaleLinear**               | -                                     | Increase in a linear fashion                                  |
-| **GreyscaleLinearBounce**         | -                                     | Increase and then decrease in a linear fashion                |
-| **GreyscaleBell**                 | BellShape & BellPosition              | Increase and decrease to form a 'bell' shape                  |
+| Colour Scheme                         | Modifier(s)                           | Greyscales Produced Where Luminosities                                    |
+| ------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------- |
+| **GreyscaleByEquation**               | NormalEquation                        | Are defined by the given equation                                         |
+| **GreyscaleByGradient**               | GradientPattern & GradientOrientation | Are defined by the specified gradient pattern and orientation             |
+| **GreyscaleLinear**                   | -                                     | Increase in a linear fashion                                              |
+| **GreyscaleLinearBounce**             | -                                     | Increase and then decrease in a linear fashion                            |
+| **GreyscaleLinearBounceSingleHigh**   | -                                     | Increase and then decrease in a linear fashion (only one high value)      |
+| **GreyscaleLinearBounceShort**        | -                                     | Increase and then decrease in a linear fashion (ends without low value)   |
+| **GreyscaleBell**                     | BellShape & BellPosition              | Increase and decrease to form a 'bell' shape                              |
 
 ## The Colour Scheme Module
 
@@ -228,10 +236,10 @@ In the code below:
 
 > **Notes** 
 >
-> - 1. The lengths of the value sequences should be the same, otherwise the length of the sequence
+> - 2. The lengths of the value sequences should be the same, otherwise the length of the sequence
 of colours will be the same as the length of the shortest value sequence.
 >
-> - 2. The colours generated in this way are not colour options which would otherwise be generated
+> - 3. The colours generated in this way are not colour options which would otherwise be generated
 via the `generateSequence` function. A simple `colours |> Seq.map Some` would rectify this, if necessary.
 
 ```fsharp 

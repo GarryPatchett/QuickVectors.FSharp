@@ -3,7 +3,7 @@
 ## Contents
 
 This document gives an overview of the QuickVectors.Core.FSharp package.
-  
+
 Please see the other related documentation for specific information about the different areas.
 
 - [Overview](#overview)
@@ -42,24 +42,31 @@ can be held in a single unsigned byte ( e.g. a value between 0 to 255, inclusive
 
 ## Types and Modules
 
-The types provided, with associated modules, are (in aphabetical order):
+The types provided, with associated modules, are (in alphabetical order):
 
-| Type/Module                   | Defines/Specifies                                                 |
-| ----------------------------- | ----------------------------------------------------------------- |
-| **[Colour](040-Colour.md "The Colour type and module")**                    | A colour in an 8-bit RGB colour space                             |
-| **[ColourScheme](060-ColourScheme.md "The ColourScheme type and module")**              | How colours are chosen                                            |
-| **[GridRoute](090-GridRoute.md "The GridRoute type and module")**                 | The route of a grid (how the cells will be visited)               |
-| **[GridSize](100-GridSize.md "The GridSize type and module")**                  | The size of a grid                                                |
-| **[Luminosity](030-Luminosity.md "The Luminosity type and module")**                | A colour component in an 8-bit RGB colour space                   |
-| **[Palette](050-Palette.md "The Palette type and module")**                   | A selection of colours which can be used by some colour schemes   |
-| **[PaneForm](130-PaneForm.md "The PaneForm type and module")**                  | The form of a pane pattern                                        |
-| **[Profile](080-Profile.md "The Profile type and module")**                   | The 'shape' of the generated numerical values                     |
-| **[RandomSeed](010-RandomSeed.md "The RandomSeed type and module")**                | A seed used to generate various things randomly                   |
-| **[Range](070-Range.md "The Range type and module")**                     | A range of values                                                 |
-| **[Shape](020-Shape.md "The Shape type and module")**                     | A shape which can be used in some patterns                        |
-| **[StandardPalette](050-Palette.md "The StandardPalette type and module")**           | Some ready-made palettes                                          |
-| **[Tessellator](110-Tessellator.md "The Tessellator type and module")**               | A tessellating shape which can be used in a tessellator pattern   |
-| **[TessellatorShadingPolicy](120-TessellatorShadingPolicy.md "The TessellatorShadingPolicy type and module")**  | How/if shading will be applied to the colours                     |
+| Type/Module                                                                                                       | Defines/Specifies                                                 |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **[Colour](040-Colour.md "The Colour type and module")**                                                          | A colour in an 8-bit RGB colour space                             |
+| **[ColourScheme](060-ColourScheme.md "The ColourScheme type and module")**                                        | How colours are chosen                                            |
+| **[GridRoute](090-GridRoute.md "The GridRoute type and module")**                                                 | The route of a grid (how the cells will be visited)               |
+| **[GridSize](100-GridSize.md "The GridSize type and module")**                                                    | The size of a grid                                                |
+| **[Luminosity](030-Luminosity.md "The Luminosity type and module")**                                              | A colour component in an 8-bit RGB colour space                   |
+| **[Opacity](036-Opacity.md "The Opacity type and module")**                                                       | An opacity which can be applied to a colour **1*                  |
+| **[OpacityPercentage](035-OpacityPercentage.md "The OpacityPercentage type and module")**                         | An opacity percentage which can be used in an opacity **1*        |
+| **[Palette](050-Palette.md "The Palette type and module")**                                                       | A selection of colours which can be used by some colour schemes   |
+| **[PaneForm](130-PaneForm.md "The PaneForm type and module")**                                                    | The form of a pane pattern                                        |
+| **[Profile](080-Profile.md "The Profile type and module")**                                                       | The 'shape' of the generated numerical values                     |
+| **[RandomSeed](010-RandomSeed.md "The RandomSeed type and module")**                                              | A seed used to generate various things randomly                   |
+| **[Range](070-Range.md "The Range type and module")**                                                             | A range of values                                                 |
+| **[Shape](020-Shape.md "The Shape type and module")**                                                             | A shape which can be used in some patterns                        |
+| **[StandardPalette](050-Palette.md "The StandardPalette type and module")**                                       | Some ready-made palettes                                          |
+| **[StrokeCornerPolicy](140-StrokeCornerPolicy.md "The StrokeCornerPolicy type and module")**                      | How the corners between segments of a line/path are joined        |
+| **[Tessellator](110-Tessellator.md "The Tessellator type and module")**                                           | A tessellating shape which can be used in a tessellator pattern   |
+| **[TessellatorShadingPolicy](120-TessellatorShadingPolicy.md "The TessellatorShadingPolicy type and module")**    | How/if shading will be applied to the colours of a tessellator    |
+
+- **1* : Mostly for reference at the present time, see the relevant type documentation for more information.
+
+> **Note:** There are some extra types/modules for defining/specifying shapes and they are documented in the [Shape](020-Shape.md "The Shape type and module") documentation.
 
 ## Helpers
 

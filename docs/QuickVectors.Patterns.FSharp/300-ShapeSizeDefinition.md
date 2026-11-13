@@ -70,9 +70,11 @@ create some basic definitions without having to specify the values for lots of f
 
 These convenience functions are:
 
-- `fromSingleFloat` : Create a shape size definition where all shapes will have the same size (width and height) as specified;
-- `fromWidthAndHeight` : Create a shape size definition where all shapes will have the same width and the same height as specified;
-- `fromWidthSpread` : Create a shape size definition where all shapes will have widths between the two values and the heights will equal the widths.
+Create a shape size definition where all shapes will have...
+
+- `fromSingleFloat` : ...the same size (width and height) as specified;
+- `fromWidthAndHeight` : ...the same width and the same height as specified;
+- `fromWidthSpread` : ...widths between the two values and the heights will equal the widths.
 
 When using a convenience function, all fields other than those mentioned are given default values as defined
 in the respective modules or Option.None as appropriate.

@@ -74,9 +74,11 @@ create some basic definitions without having to specify the values for lots of f
 
 These convenience functions are:
 
-- `fromSingleInt` : Create a vertices definition where the number of vertices will all be the value as specified;
-- `fromIns` : Create a vertices definition where the number of vertices will be between the values specified;
-- `fromRange` : Create a vertices definition where the range will be as specified.
+Create a vertices definition where...
+
+- `fromSingleInt` : ...the number of vertices will all be the value as specified;
+- `fromIns` : ...the number of vertices will be between the values specified;
+- `fromRange` : ...the range will be as specified.
 
 When using a convenience function, all fields other than those mentioned are given default values as defined
 in the respective modules or Option.None as appropriate.

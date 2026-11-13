@@ -26,6 +26,7 @@ The fields of the stroke definition are as follows:
 | ------------------------- | ------------------------- | --------------------------------------------------------------------------------------------- |
 | **ColourScheme**          | [ColourScheme](../QuickVectors.Core.FSharp/060-ColourScheme.md "The ColourScheme type and module")              | The colour scheme to be used to generate the colours                                          |
 | **Width**                 | [StrokeWidthDefinition](340-StrokeWidthDefinition.md "The StrokeWidthDefinition type and module")     | The width definition used to generate the stroke widths                                       |
+| **CornerPolicy**          | [StrokeCornerPolicy](../QuickVectors.Core.FSharp/140-StrokeCornerPolicy.md "The StrokeCornerPolicy type and module")     | How line/path segments are joined                                       |
 | **Reordering**            | [ColourReordering](020-ReorderingAndModification.md "The ColourReordering type and module") **1*     | The sequence reordering which can modify the stroke colour sequence generated via the profile |
 | **Modification**          | [ColourModification](020-ReorderingAndModification.md "The ColourModification type and module") **1*   | The colour modification which can take place whether reordering happened or not               |
 | **Noise**                 | [Noise](050-Noise.md "The Noise type and module") **1*                | The type of noise which can be applied to the stroke colours                                  |
@@ -38,6 +39,7 @@ Below is an example stroke definition where all the values have been chosen manu
 let custom = 
     {   StrokeDefinition.ColourScheme = ColourScheme.RandomColourFull 
         Width = StrokeWidthDefinition.fromFloats 1.0 6.0 
+        CornerPolicy = StrokeCornerPolicy.RoundCorners 
         Reordering = Some ColourReordering.SortedByAscendingLuminosity
         Modification = None 
         Noise = None }
@@ -46,6 +48,7 @@ let custom =
     //                Profile = Random
     //                Reordering = None
     //                Modification = None }
+    //      CornerPolicy = RoundCorners 
     //      Reordering = Some SortedByAscendingLuminosity
     //      Modification = None
     //      Noise = None }
@@ -58,8 +61,10 @@ create some basic definitions without having to specify the values for lots of f
 
 These convenience functions are:
 
-- `fromColourScheme` : Create a stroke definition with the specified colour scheme;
-- `fromFillDefinition` : Create a stroke definition from a [fill definition](350-FillDefinition.md "The FillDefinition type and module").
+Create a stroke definition...
+
+- `fromColourScheme` : ...with the specified colour scheme;
+- `fromFillDefinition` : ...from a [fill definition](350-FillDefinition.md "The FillDefinition type and module").
 
 When using `fromColourScheme`, all fields other than those mentioned are given default values as defined in the respective modules.
 
@@ -89,6 +94,7 @@ let randomGreys =
     //                Profile = Random
     //                Reordering = None
     //                Modification = None }
+    //      CornerPolicy = RoundCorners 
     //      Reordering = None
     //      Modification = None
     //      Noise = None }
@@ -103,6 +109,7 @@ let modified =
     //                Profile = Random
     //                Reordering = None
     //                Modification = None }
+    //      CornerPolicy = RoundCorners 
     //      Reordering = Some SortedByAscendingLuminosity
     //      Modification = None
     //      Noise = Some Less }
@@ -110,19 +117,22 @@ let modified =
 
 Alternatively you can use a convenience function to change one field:
 
-- `withReordering` : Returns a copy of the definition with the specified colour reordering;
-- `withoutReordering` : Returns a copy of the definition without any colour reordering;
-- `withModification` : Returns a copy of the definition with the specified colour modification;
-- `withoutModification` : Returns a copy of the definition without any colour modification;
-- `withNoise` : Returns a copy of the definition with the specified noise;
-- `withoutNoise` : Returns a copy of the definition without any noise.
+Returns a copy of the definition...
+
+- `withCornerPolicy` : ...with the specified corner policy;
+- `withReordering` : ...with the specified colour reordering;
+- `withoutReordering` : ...without any colour reordering;
+- `withModification` : ...with the specified colour modification;
+- `withoutModification` : ...without any colour modification;
+- `withNoise` : ...with the specified noise;
+- `withoutNoise` : ...without any noise.
 
 ### Conversion
 
 You can create a [fill definition](350-FillDefinition.md "The FillDefinition type and module") from a stroke definition via the `toFillDefinition` functon.
 
 When using `toFillDefinition`, all fields in the new fill definition will be given the values in the stroke
-definition except `Width` which will be lost.
+definition except `Width` and `LineJoin` which will be lost.
 
 ### Generation 
 

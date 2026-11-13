@@ -10,10 +10,13 @@ This type lets you define a pattern which is based around shapes being tessellat
     - [Deconstruction](#deconstruction)
     - [Variations](#variations)
     - [Generation](#generation)
+    - [Post-generation Modifications](#post-generation-modifications)
     - [Ready-made Tessellation Patterns](#ready-made-tessellation-patterns)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ![Tessellation Examples Image](images/Tessellation-Examples.png "Tessellation Examples")
+
+All of the examples above are available as ready-made patterns.
 
 ## The Tessellation Type
 
@@ -35,7 +38,15 @@ The fields of the tessellation pattern are as follows:
 | **FillShadingPolicy**     | [TessellatorShadingPolicy](../QuickVectors.Core.FSharp/120-TessellatorShadingPolicy.md "The TessellatorShadingPolicy type and module") **1*     | How the tessellator shading will be applied to the fill           |
 | **Stroke**                | [StrokeDefinition](360-StrokeDefinition.md "The StrokeDefinition type and module") **1*               | Colours and widths of the shape strokes               |
 | **StrokeShadingPolicy**   | [TessellatorShadingPolicy](../QuickVectors.Core.FSharp/120-TessellatorShadingPolicy.md "The TessellatorShadingPolicy type and module") **1*     | How the tessellator shading will be applied to the stroke         |
-| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                           | The boundary                                          |
+
+This field is deprecated:
+
+| Field Name                | Type                                                                                              | Purpose / Defines                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The boundary frame                                        |
+
+This deprecated field will be removed in a later version of the package. Until then, just set it to `None`.
+To add a boundary frame please use the `withBoundaryFrame` post-generation function instead.
 
 - **1* : An Option field.
 
@@ -102,13 +113,19 @@ For example: `let newRecord = { oldRecord with FieldName = newValue }`.
 Some convenience functions are available which can be useful:
 
 - `withNewRandomSeed` : Randomly generates a new random seed;
-- `withDifferentTessellator` : Uses a different tessellator;
+- `withDifferentTessellator` : Uses a different tessellator.
+
+These functions are deprecated:
+
 - `withFrame` : Adds a standard boundary frame to a pattern;
 - `withoutFrame` : Removes the frame from a pattern.
 
+These deprecated functions will be removed in a later version of the package.
+To add a boundary frame please use the `withBoundaryFrame` post-generation function instead.
+
 ```fsharp 
 Tessellation.rainbowCubes // A ready-made design.
-|> Tessellation.withFrame // With a frame.
+|> Tessellation.withNewRandomSeed // With a new random seed.
 ```
 
 ### Generation 
@@ -143,15 +160,30 @@ of generation so that if you generate the design again, or export the same desig
 with the same randomness. This allows you to save the parameters used in the pattern for replication at another time.
 If you don't want this then you can change the RandomSeed field before (re-)generation.
 
+### Post-generation Modifications
+
+Once the design has been generated you can modify it via some functions.
+If used, these functions must be used **after** the `generate` function has been used.
+
+These functions are:
+
+- `withBackground` : Add a colour-filled background to the design;
+
+    More information about backgrounds can be found [here](491-Backgrounds.md).
+
+- `withBoundaryFrame` : Add a frame which delineates the boundary of the pattern.
+
+    More information about frames can be found [here](490-Frames.md).
+
 ## Ready-made Tessellation Patterns
 
 The ready-made tessellation patterns available are:
 
-- `rainbowCubes` : A pattern which looks like a wall of coloured '3D' cubes;
-- `honeycomb` : A pattern which looks like a yellow-filled honeycomb;
-- `honeycombOutline` : A pattern which looks like a yellow-outlined honeycomb;
-- `hotelCarpet` : A pattern which looks a bit like a hotel carpet;
-- `tiledFloor` : A pattern which looks like a tiled floor.
+- `rainbowCubes` : A wall of coloured '3D' cubes;
+- `honeycomb` : A yellow-filled honeycomb;
+- `honeycombOutline` : A yellow-outlined honeycomb;
+- `hotelCarpet` : A bit like a hotel carpet;
+- `tiledFloor` : A tiled floor.
 
 You can make variations of these ready-made patterns or examine them to give you ideas
 for your own patterns.

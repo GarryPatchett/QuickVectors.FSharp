@@ -10,10 +10,13 @@ This type lets you define a pattern which is based around shapes being scattered
     - [Deconstruction](#deconstruction)
     - [Variations](#variations)
     - [Generation](#generation)
+    - [Post-generation Modifications](#post-generation-modifications)
     - [Ready-made Scatter Patterns](#ready-made-scatter-patterns)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ![Scatter Examples Image](images/Scatter-Examples.png "Scatter Examples")
+
+All of the examples above are available as ready-made patterns.
 
 ## The Scatter Type
 
@@ -37,7 +40,15 @@ The fields of the scatter pattern are as follows:
 | **ScatterArea**           | [ScatterAreaDefinition](370-ScatterAreaDefinition.md "The ScatterAreaDefinition type and module") | The type of area over which the shapes will be scattered      |
 | **Fill**                  | [FillDefinition](350-FillDefinition.md "The FillDefinition type and module") **1*                 | Fill colours of the shapes                                    |
 | **Stroke**                | [StrokeDefinition](360-StrokeDefinition.md "The StrokeDefinition type and module") **1*           | Colours and widths of the shape strokes                       |
-| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The boundary frame                                            |
+
+This field is deprecated:
+
+| Field Name                | Type                                                                                              | Purpose / Defines                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The boundary frame                                        |
+
+This deprecated field will be removed in a later version of the package. Until then, just set it to `None`.
+To add a boundary frame please use the `withBoundaryFrame` post-generation function instead.
 
 - **1* : An Option field.
 
@@ -57,7 +68,7 @@ Below is an example scatter pattern where all the values have been chosen manual
 let bubbles = 
     {   Scatter.RandomSeed = RandomSeed.generate()
         NumberOfShapes = NumberOfShapes.fromInt 250
-        Shape = Shape.Ellipse
+        Shape = Shape.Ellipse.standardAsElement
         ShapeSize = {   ShapeSizeDefinition.basic with 
                             WidthRange = ShapeDimensionRange.fromFloats 10.0 50.0 
                             WidthProfile = Profile.Linear 
@@ -119,14 +130,20 @@ Some convenience functions are available which can be useful:
 
 - `withNewRandomSeed` : Randomly generates a new random seed;
 - `withDifferentShape` : Uses a different shape;
-- `withDifferentNumberOfShapes` : Sets the number of shapes to a new value;
+- `withDifferentNumberOfShapes` : Sets the number of shapes to a new value.
+
+These functions are deprecated:
+
 - `withFrame` : Adds a standard boundary frame to a pattern;
 - `withoutFrame` : Removes the frame from a pattern.
+
+These deprecated functions will be removed in a later version of the package.
+To add a boundary frame please use the `withBoundaryFrame` post-generation function instead.
 
 ```fsharp 
 Scatter.bubbles // A ready-made design.
 |> Scatter.withDifferentNumberOfShapes 500 // With more shapes.
-|> Scatter.withFrame // With a frame.
+|> Scatter.withNewRandomSeed // With a new random seed.
 ```
 
 ### Generation 
@@ -161,14 +178,31 @@ of generation so that if you generate the design again, or export the same desig
 with the same randomness. This allows you to save the parameters used in the pattern for replication at another time.
 If you don't want this then you can change the RandomSeed field before (re-)generation.
 
+### Post-generation Modifications
+
+Once the design has been generated you can modify it via some functions.
+If used, these functions must be used **after** the `generate` function has been used.
+
+These functions are:
+
+- `withBackground` : Add a colour-filled background to the design;
+
+    More information about backgrounds can be found [here](491-Backgrounds.md).
+
+- `withBoundaryFrame` : Add a frame which delineates the boundary of the pattern.
+
+    More information about frames can be found [here](490-Frames.md).
+
 ## Ready-made Scatter Patterns
 
 The ready-made scatter patterns available are:
 
-- `confetti` : A pattern which looks like paper confetti has been thrown;
-- `heartthrob` : A pattern which looks like an elliptical ring of hearts (maybe to put round an image);
-- `bubbles` : A pattern which looks (a bit) like bubbles floating up;
-- `seventiesWallpaper` : A pattern which looks like wallpaper from the 1970's.
+- `confetti` : Paper confetti has been thrown around;
+- `heartthrob` : An elliptical ring of hearts (maybe to put round an image);
+- `bubbles` : Bubbles floating up;
+- `seventiesWallpaper` : Wallpaper from the 1970's;
+- `alienAttack` : Aliens coming out of the screen;
+- `cloudySkies` : Some clouds.
 
 You can make variations of these ready-made patterns or examine them to give you ideas
 for your own patterns.

@@ -10,10 +10,13 @@ This type lets you define a pattern which is based on shapes covering an area.
     - [Deconstruction](#deconstruction)
     - [Variations](#variations)
     - [Generation](#generation)
+    - [Post-generation Modifications](#post-generation-modifications)
     - [Ready-made Pane Patterns](#ready-made-pane-patterns)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ![Pane Examples Image](images/Pane-Examples.png "Pane Examples")
+
+All of the examples above are available as ready-made patterns.
 
 ## The Pane Type
 
@@ -39,7 +42,15 @@ The fields of the pane pattern are as follows:
 | **StraightLeftAndRight**  | bool                                                                                              | Whether to keep the left and right sides of the design straight |
 | **Fill**                  | [FillDefinition](350-FillDefinition.md "The FillDefinition type and module") **3*                 | Fill colours of the shapes                                    |
 | **Stroke**                | [StrokeDefinition](360-StrokeDefinition.md "The StrokeDefinition type and module") **3*           | Colours and widths of the shape strokes                       |
-| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **3*                       | The boundary frame                                            |
+
+This field is deprecated:
+
+| Field Name                | Type                                                                                              | Purpose / Defines                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The boundary frame                                        |
+
+This deprecated field will be removed in a later version of the package. Until then, just set it to `None`.
+To add a boundary frame please use the `withBoundaryFrame` post-generation function instead.
 
 - **1* : Only appropriate with the PanePosts, PaneRails, and PaneSheets pane forms.
 - **2* : Only appropriate with the PaneBlades pane form.
@@ -47,10 +58,13 @@ The fields of the pane pattern are as follows:
 
 > **Notes:**
 >
-> 1. If you specify `None` for both the Fill and Stroke fields then all of the panes will be invisible.
+> 4. If you specify `None` for both the Fill and Stroke fields then all of the panes will be invisible.
 >
-> 2. You can specify a StrokeDefinition with a ColourScheme of `ColourScheme.allNoColour` to get strokes that will be
+> 5. You can specify a StrokeDefinition with a ColourScheme of `ColourScheme.allNoColour` to get strokes that will be
 in the exported design but not visible.
+>
+> 6. The stroke corner policy for all pane pattern shapes is currently `StrokeCornerPolicy.RoundCorners`. This will
+override any choice which you specify in the stroke definition.
 
 Below is an example pane pattern where all the values have been chosen manually:
 
@@ -110,13 +124,19 @@ Some convenience functions are available which can be useful:
 - `withMidPoints` : Mid-points are created;
 - `withoutMidPoints` : Mid-points are not created;
 - `withStraightEdges` : Design will have straight edges;
-- `withoutStraightEdges` : Design will not have straight edges;
-- `withFrame` : Adds the standard boundary frame to a pattern;
+- `withoutStraightEdges` : Design will not have straight edges.
+
+These functions are deprecated:
+
+- `withFrame` : Adds a standard boundary frame to a pattern;
 - `withoutFrame` : Removes the frame from a pattern.
+
+These deprecated functions will be removed in a later version of the package.
+To add a boundary frame please use the `withBoundaryFrame` post-generation function instead.
 
 ```fsharp 
 Pane.circus // A ready-made design.
-|> Pane.withFrame // Now with a frame.
+|> Pane.withNewRandomSeed // With a new random seed.
 ```
 
 ### Generation 
@@ -151,15 +171,30 @@ of generation so that if you generate the design again, or export the same desig
 with the same randomness. This allows you to save the parameters used in the pattern for replication at another time.
 If you don't want this then you can change the RandomSeed field before (re-)generation.
 
+### Post-generation Modifications
+
+Once the design has been generated you can modify it via some functions.
+If used, these functions must be used **after** the `generate` function has been used.
+
+These functions are:
+
+- `withBackground` : Add a colour-filled background to the design;
+
+    More information about backgrounds can be found [here](491-Backgrounds.md).
+
+- `withBoundaryFrame` : Add a frame which delineates the boundary of the pattern.
+
+    More information about frames can be found [here](490-Frames.md).
+
 ## Ready-made Pane Patterns
 
 The ready-made pane patterns available are:
 
-- `flagstones` : A pattern which looks like flagstones;
-- `desertSunset` : A pattern which looks like a sunset in the desert;
-- `escapeTheCave` : A pattern which looks (a bit) like the view from inside a cave;
-- `hiddenTiger` : A pattern which looks like there might be a tiger in there somewhere;
-- `circus` : A pattern which looks like the background of a circus poster.
+- `flagstones` : Flagstones;
+- `desertSunset` : A sunset in the desert;
+- `escapeTheCave` : A bit like the view from inside a cave;
+- `hiddenTiger` : Is there a tiger in there somewhere?;
+- `circus` : A circus poster background.
 
 You can make variations of these ready-made patterns or examine them to give you ideas
 for your own patterns.

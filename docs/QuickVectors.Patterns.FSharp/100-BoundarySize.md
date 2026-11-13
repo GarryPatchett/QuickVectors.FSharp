@@ -21,10 +21,12 @@ The `BoundarySize` **type** defines the size of a boundary of a pattern.
 
 A boundary size can be created via various functions:
 
-- `fromSingleFloat` : The boundary size will be created with **both** the width and height equal to the value provided;
-- `fromFloats` : The boundary size will be created with the width and height equal to the values provided;
-- `fromSingleDimension` : The boundary size will be created with **both** the width and height equal to the dimension provided;
-- `fromDimensions` : The boundary size will be created with the width and height equal to the dimensions provided.
+The boundary size will be created with...
+
+- `fromSingleFloat` : ...**both** the width and height equal to the value provided;
+- `fromFloats` : ...the width and height equal to the values provided;
+- `fromSingleDimension` : ...**both** the width and height equal to the dimension provided;
+- `fromDimensions` : ...the width and height equal to the dimensions provided.
 
 When one or more floats are provided the values will be clamped to the `minimum` and `maximum` (inclusive) of
 the [BoundaryDimension](090-BoundaryDimension.md "The BoundaryDimension type and module") type.

@@ -10,10 +10,13 @@ This type lets you define a pattern which is based around shapes being rotated a
     - [Deconstruction](#deconstruction)
     - [Variations](#variations)
     - [Generation](#generation)
+    - [Post-generation Modifications](#post-generation-modifications)
     - [Ready-made Centric Patterns](#ready-made-centric-patterns)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ![Centric Examples Image](images/Centric-Examples.png "Centric Examples")
+
+All of the examples above are available as ready-made patterns.
 
 ## The Centric Type
 
@@ -40,8 +43,16 @@ The fields of the centric pattern are as follows:
 | **Spacing**               | [CentricSpacingDefinition](380-CentricSpacingDefinition.md "The CentricSpacingDefinition type and module")            | The spacing of the centrics               |
 | **Fill**                  | [FillDefinition](350-FillDefinition.md "The FillDefinition type and module") **1*                                     | Fill colours of the centrics              |
 | **Stroke**                | [StrokeDefinition](360-StrokeDefinition.md "The StrokeDefinition type and module") **1*                               | Colours and widths of the centric strokes |
-| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                                           | The boundary frame                        |
-| **ExtentsFrame**          | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                                           | The extents frame                         |
+
+These fields are deprecated:
+
+| Field Name                | Type                                                                                              | Purpose / Defines                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The boundary frame                                        |
+| **ExtentsFrame**          | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The extents frame                                         |
+
+These deprecated fields will be removed in a later version of the package. Until then, just set both to `None`.
+To add a boundary frame or extents frame please use the `withBoundaryFrame` or `withExtentsFrame` post-generation functions instead.
 
 - **1* : An Option field.
 
@@ -59,7 +70,7 @@ Below is an example centric pattern where all the values have been chosen manual
 ```fsharp 
 let frostyStar = 
     {   RandomSeed = RandomSeed.generate()
-        Shape = Shape.Star 
+        Shape = Shape.Radial.star 
         NumberOfCentrics = NumberOfCentrics.fromInt 50 
         Geometry = GeometryDefinition.twentyEightyRandom
         Rotation = IncrementalRotationAmount.fromFloat 10.0
@@ -105,13 +116,19 @@ For example: `let newRecord = { oldRecord with FieldName = newValue }`.
 
 Some convenience functions are available which can be useful:
 
-- `withNewRandomSeed` : Randomly generates a new random seed;
+- `withNewRandomSeed` : Randomly generates a new random seed.
+
+These functions are deprecated:
+
 - `withBothFrames` : Adds both standard frames to a pattern;
 - `withoutFrames` : Removes both frames from a pattern.
 
+These deprecated functions will be removed in a later version of the package.
+To add a boundary frame or extents frame please use the `withBoundaryFrame` or `withExtentsFrame` post-generation functions instead.
+
 ```fsharp 
 Centric.frostyStar // A ready-made design.
-|> Centric.withBothFrames // Now with frames.
+|> Centric.withNewRandomSeed // With a new random seed.
 ```
 
 ### Generation 
@@ -146,13 +163,29 @@ of generation so that if you generate the design again, or export the same desig
 with the same randomness. This allows you to save the parameters used in the pattern for replication at another time.
 If you don't want this then you can change the RandomSeed field before (re-)generation.
 
+### Post-generation Modifications
+
+Once the design has been generated you can modify it via some functions.
+If used, these functions must be used **after** the `generate` function has been used.
+
+These functions are:
+
+- `withBackground` : Add a colour-filled background to the design;
+
+    More information about backgrounds can be found [here](491-Backgrounds.md).
+
+- `withBoundaryFrame` : Add a frame which delineates the boundary of the pattern;
+- `withExtentsFrame` : Add a frame which delineates the extents of the pattern.
+
+    More information about frames can be found [here](490-Frames.md).
+
 ## Ready-made Centric Patterns
 
 The ready-made centric patterns available are:
 
-- `frostyStar` : A pattern which looks like a star in winter (ish);
-- `hypnoTunnel` : A pattern which looks like a hypnotic tunnel;
-- `flowerPower` : A pattern which looks like a 'hippy flower';
+- `frostyStar` : A star in winter (ish);
+- `hypnoTunnel` : A hypnotic tunnel;
+- `flowerPower` : A 'hippy flower';
 - `lookIntoMyEyes` : A pattern which makes your eyes 'go funny' if you look at it for too long.
 
 You can make variations of these ready-made patterns or examine them to give you ideas

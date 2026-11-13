@@ -10,10 +10,13 @@ This type lets you define a pattern which is based around shapes aligned to a gr
     - [Deconstruction](#deconstruction)
     - [Variations](#variations)
     - [Generation](#generation)
+    - [Post-generation Modifications](#post-generation-modifications)
     - [Ready-made Shape Grid Patterns](#ready-made-shape-grid-patterns)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ![Shape Grid Examples Image](images/ShapeGrid-Examples.png "Shape Grid Examples")
+
+All of the examples above are available as ready-made patterns.
 
 ## The Shape Grid Type
 
@@ -38,26 +41,34 @@ The fields of the shape grid pattern are as follows:
 | **GridOffset**            | [GridOffset](030-GridOffset.md "The GridOffset type and module") **1*                             | Offset of the rows                                        |
 | **Fill**                  | [FillDefinition](350-FillDefinition.md "The FillDefinition type and module") **1*                 | Fill colours of the shapes                                |
 | **Stroke**                | [StrokeDefinition](360-StrokeDefinition.md "The StrokeDefinition type and module") **1*           | Colours and widths of the shape strokes                   |
+
+These fields are deprecated:
+
+| Field Name                | Type                                                                                              | Purpose / Defines                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | **BoundaryFrame**         | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The boundary frame                                        |
 | **ExtentsFrame**          | [FrameDefinition](490-Frames.md "The FrameDefinition type and module") **1*                       | The extents frame                                         |
+
+These deprecated fields will be removed in a later version of the package. Until then, just set both to `None`.
+To add a boundary frame or extents frame please use the `withBoundaryFrame` or `withExtentsFrame` post-generation functions instead.
 
 - **1* : An Option field.
 
 > **Notes:**
 >
-> 1. If you specify `None` for both the Fill and Stroke fields then all of the shapes will be invisible.
+> 2. If you specify `None` for both the Fill and Stroke fields then all of the shapes will be invisible.
 >
-> 2. You can specify a StrokeDefinition with a ColourScheme of `ColourScheme.allNoColour` to get strokes that will be
+> 3. You can specify a StrokeDefinition with a ColourScheme of `ColourScheme.allNoColour` to get strokes that will be
 in the exported design but not visible.
 >
-> 3. Specifying a ColumnGap of `None` is equal to specifying a ColumnGap of `Some (ColumnGap.fromFloat 0.0)`. Same thing for the RowGap.
+> 4. Specifying a ColumnGap of `None` is equal to specifying a ColumnGap of `Some (ColumnGap.fromFloat 0.0)`. Same thing for the RowGap.
 
 Below is an example shape grid pattern where all the values have been chosen manually:
 
 ```fsharp 
 let brickWall = 
     {   ShapeGrid.RandomSeed = RandomSeed.generate()
-        Shape = Rectangle 
+        Shape = Shape.Rectangle.standardAsElement 
         ShapeSize = ShapeSizeDefinition.fromWidthAndHeight 100.0 50.0 
         Geometry = GeometryDefinition.fiftyFifty 
         Rotation = RotationDefinition.noRotation 
@@ -114,13 +125,19 @@ For example: `let newRecord = { oldRecord with FieldName = newValue }`.
 Some convenience functions are available which can be useful:
 
 - `withNewRandomSeed` : Randomly generates a new random seed;
-- `withDifferentShape` : Uses a different shape;
+- `withDifferentShape` : Uses a different shape.
+
+These functions are deprecated:
+
 - `withBothFrames` : Adds both standard frames to a pattern;
 - `withoutFrames` : Removes both frames from a pattern.
 
+These deprecated functions will be removed in a later version of the package.
+To add a boundary frame or extents frame please use the `withBoundaryFrame` or `withExtentsFrame` post-generation functions instead.
+
 ```fsharp 
 ShapeGrid.notebookCover // A ready-made design.
-|> ShapeGrid.withBothFrames // Now with frames.
+|> ShapeGrid.withNewRandomSeed // With a new random seed.
 ```
 
 ### Generation 
@@ -155,14 +172,31 @@ of generation so that if you generate the design again, or export the same desig
 with the same randomness. This allows you to save the parameters used in the pattern for replication at another time.
 If you don't want this then you can change the RandomSeed field before (re-)generation.
 
+### Post-generation Modifications
+
+Once the design has been generated you can modify it via some functions.
+If used, these functions must be used **after** the `generate` function has been used.
+
+These functions are:
+
+- `withBackground` : Add a colour-filled background to the design;
+
+    More information about backgrounds can be found [here](491-Backgrounds.md).
+
+- `withBoundaryFrame` : Add a frame which delineates the boundary of the pattern;
+- `withExtentsFrame` : Add a frame which delineates the extents of the pattern.
+
+    More information about frames can be found [here](490-Frames.md).
+
 ## Ready-made Shape Grid Patterns
 
 The ready-made shape grid patterns available are:
 
-- `chessBoard` : A pattern which looks like a chess board;
-- `brickWall` : A pattern which looks like a brick wall;
-- `notebookCover` : A pattern which looks like something you might see on the cover of a notebook;
-- `wellDoneYou` : A pattern of stars of various sizes and colours, all rotated in various ways.
+- `chessBoard` : A chess board;
+- `brickWall` : A brick wall;
+- `notebookCover` : Something you might see on the cover of a notebook;
+- `wellDoneYou` : Stars of various sizes and colours, all rotated in various ways;
+- `cardSharp` : Random playing card suits.
 
 You can make variations of these ready-made patterns or examine them to give you ideas
 for your own patterns.

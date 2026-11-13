@@ -109,12 +109,14 @@ Rather it only affects the order of the colours in the output sequence.
 
 Alternatively you can use a convenience function to change one field:
 
-- `withReordering` : Returns a copy of the definition with the specified colour reordering;
-- `withoutReordering` : Returns a copy of the definition without any colour reordering;
-- `withModification` : Returns a copy of the definition with the specified colour modification;
-- `withoutModification` : Returns a copy of the definition without any colour modification;
-- `withNoise` : Returns a copy of the definition with the specified noise;
-- `withoutNoise` : Returns a copy of the definition without any noise.
+Returns a copy of the definition...
+
+- `withReordering` : ...with the specified colour reordering;
+- `withoutReordering` : ...without any colour reordering;
+- `withModification` : ...with the specified colour modification;
+- `withoutModification` : ...without any colour modification;
+- `withNoise` : ...with the specified noise;
+- `withoutNoise` : ...without any noise.
 
 ### Conversion
 

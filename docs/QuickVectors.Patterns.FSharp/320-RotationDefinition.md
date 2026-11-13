@@ -61,9 +61,11 @@ create some basic definitions without having to specify the values for lots of f
 
 These convenience functions are:
 
-- `fromSingleFloat` : Create a rotation definition where all modifiers will have the same value as specified;
-- `fromFloats` : Create a rotation definition where all modifiers will be between the values specified;
-- `fromRange` : Create a rotation definition where the range will be as specified.
+Create a rotation definition where...
+
+- `fromSingleFloat` : ...all modifiers will have the same value as specified;
+- `fromFloats` : ...all modifiers will be between the values specified;
+- `fromRange` : ...the range will be as specified.
 
 When using a convenience function, all fields other than those mentioned are given default values as defined
 in the respective modules or Option.None as appropriate.

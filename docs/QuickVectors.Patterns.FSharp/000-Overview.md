@@ -58,16 +58,25 @@ The pattern types provided, with associated modules, are (in the recommended ord
 | **[Tessellation](520-Tessellation.md "The Tessellation type and module")**    | Tessellating shapes                                               |
 | **[Centric](530-Centric.md "The Centric type and module")**                   | Con**centric** shapes rotating around the same centre-point       |
 | **[Pane](540-Pane.md "The Pane type and module")**                            | Shapes which cover an area (like a stained-glass window)          |
+| **[ChessBoard](550-ChessBoard.md "The ChessBoard type and module")**          | Chess boards of various kinds                                     |
 
-The associated/shared types are (in alhpabetical order):
+The associated/shared types are (in alphabetical order):
 
 | Type/Module                                                                                                               | Defines/Specifies                                             |
 | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **[BackgroundStrategy](491-Backgrounds.md "The BackgroundStrategy type")**                                                | A background for a design                                     |
 | **[BoundaryDimension](090-BoundaryDimension.md "The BoundaryDimension type and module")**                                 | A dimension of a boundary                                     |
 | **[BoundarySize](100-BoundarySize.md "The BoundarySize type and module")**                                                | The size of a boundary                                        |
 | **[CentrePercentage](150-CentrePercentage.md "The CentrePercentage type and module")** **4*                               | Where the centre of the design will be                        |
 | **[CentricRotationDefinition](390-CentricRotationDefinition.md "The CentricRotationDefinition type and module")** **1*    | How centrics will be rotated                                  |
 | **[CentricSpacingDefinition](380-CentricSpacingDefinition.md "The CentricSpacingDefinition type and module")** **1*       | How centrics will be spaced                                   |
+| **[ChessBoardAnnotationPolicy](400-ChessBoardRelatedTypes.md "The ChessBoardAnnotationPolicy type and module")** **5*     | How/whether a chess board is to be annotated                  |
+| **[ChessBoardArrangement](400-ChessBoardRelatedTypes.md "The ChessBoardArrangement type and module")** **5*               | The arrangement of pieces on a chess board                    |
+| **[ChessBoardColourWay](400-ChessBoardRelatedTypes.md "The ChessBoardColourWay type and module")** **5*                   | The colouring of the squares on a chess board                 |
+| **[ChessBoardSize](400-ChessBoardRelatedTypes.md "The ChessBoardSize type and module")** **5*                             | The size of a chess board                                     |
+| **[ChessBoardSizing](400-ChessBoardRelatedTypes.md "The ChessBoardSizing type and module")** **5*                         | The sizing for a chess board                                  |
+| **[ChessPieceColourWay](400-ChessBoardRelatedTypes.md "The ChessPieceColourWay type and module")** **5*                   | The colouring of the pieces on a chess board                  |
+| **[ChessSquareSize](400-ChessBoardRelatedTypes.md "The ChessSquareSize type and module")** **5*                           | The size of the squares on a chess board                      |
 | **[ColourModification](020-ReorderingAndModification.md "The ColourModification type and module")**                       | How the generated colours might be further modified           |
 | **[ColourReordering](020-ReorderingAndModification.md "The ColourReordering type and module")**                           | How the generated colours might be reordered                  |
 | **[ColumnGap](040-Gaps.md "The ColumnGap type and module")**                                                              | The width of gaps between columns                             |
@@ -104,6 +113,7 @@ The associated/shared types are (in alhpabetical order):
 - **2* : Only relevant to Scatter patterns.
 - **3* : Only relevant to Tessellation patterns.
 - **4* : Only relevant to Pane patterns.
+- **5* : Only relevant to ChessBoard patterns.
 
 Some of the above types are not used/appropriate in all patterns.
 

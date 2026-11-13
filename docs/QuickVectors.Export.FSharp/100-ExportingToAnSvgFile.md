@@ -6,6 +6,7 @@
 - A [Basic Example](#basic-example) of how to use the functionality
 - A [Custom Example](#custom-example) showing a different way to use it
 - [Compiling a Design](#compiling-a-design)
+- [Possible Problems With Text](#possible-problems-with-text)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ## The Svg Module
@@ -47,13 +48,20 @@ open QuickVectors.Patterns.FSharp // Required for generating the design.
 open QuickVectors.Export.Svg.FSharp // Required for exporting.
 
 let exportSettings = 
-    {   SvgExportSettings.ColourFormat = ExportColoursAsHex
+    {   SvgExportSettings.XmlEncoding = XmlEncoding.Utf8Encoding 
+        SvgVersion = SvgVersion.OnePointOne 
+        IdentificationPolicy = OmitIdentification 
+        ColourFormat = ExportColoursAsHex
         TransformFormat = MatrixTransform
-        InvisibilityPolicy = ExportInvisibleElements } 
+        InvisibilityPolicy = ExportInvisibleElements 
+        OpacityPolicy = AlwaysExpressOpacity 
+        OpacityFormat = OpacitiesAsPercentages 
+        DefaultAttributePolicy = AlwaysExpressDefaultAttributes 
+        GroupingPolicy = GroupRelatedElements (IndentSpaces = 2) } 
 
 let custom = 
     {   ShapeGrid.RandomSeed = RandomSeed.generate()
-        Shape = Rectellipse
+        Shape = Shape.Rectangle.rectellipse 
         ShapeSize = 
             { ShapeSizeDefinition.WidthRange = ShapeDimensionRange.fiftyAndAbove
               WidthProfile = Profile.CosineWave
@@ -90,14 +98,44 @@ See the relevant documentation elsewhere for information about how to specify a 
 
 ### Compiling a Design
 
-Alternatively, you can create an array of string, with each element being a different part of the SVG design via
+Alternatively, you can create an array of SvgElement, with each element being a different part of the SVG design via
 the `Svg.compile` function (same parameters as the `export` function).
 
 You would not normally need to do this but you might find it useful if you want to manipulate the elements further before
 saving the design to a file.
 
-The compiled string array cannot be passed to the `export` function; once you have compiled the design to a collection 
-of strings it's your responsibility.
+The compiled array does not contain the header or footer which is necessary for an SVG file.
+
+The compiled array cannot be passed to the `export` function; once you have compiled the design to a collection 
+of SvgElement it's your responsibility.
+
+An example of compiling the SVG elements and converting them to text can be seen below:
+
+```fsharp 
+open System.IO // Required for the File functionality.
+open QuickVectors.Patterns.FSharp // Required for generating the design.
+open QuickVectors.Export.Svg.FSharp // Required for exporting.
+
+let settings = SvgExportSettings.standard
+
+ShapeGrid.brickWall // A ready-made design.
+|> ShapeGrid.generate // Generate the design.
+|> Svg.compile settings // Create the SVG elements.
+// Your manipulation can go here.
+|> Array.map (SvgElement.extractText settings) // Extract the SVG text.
+```
+
+## Possible Problems With Text 
+
+Where a design includes text no font is specified, so the font you see will be dependent upon the default (or user-specified) font of the user
+agent (e.g. browser, vector graphic application) which you are viewing the exported SVG in.
+
+Also, some user agents do not properly - or at all - parse some attributes (e.g. *dominant-baseline*, etc.) that are used to specify the text.
+
+In these cases you may find that the positioning or look of the text is a bit wrong and you might need to make some changes
+to make the design look as you want it.
+
+Most modern browsers will display the SVG just fine so you can use them to see how the file should look.
 
 ## Issues, Questions, and Suggestions
 

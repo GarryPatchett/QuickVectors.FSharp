@@ -7,6 +7,8 @@ This document gives an overview of the QuickVectors.Export.FSharp package.
 - [Overview](#overview)
 - [Types and Modules](#types-and-modules)
 - [Samples](#samples)
+- [Templates](#templates)
+- [Other Types](#other-types)
 - [Discriminated Union Identity Values](#discriminated-union-identity-values)
 - [Exception-free Processing](#exception-free-processing)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
@@ -35,12 +37,19 @@ available on the web; just search for ***rgb color space*** to find lots of usef
 
 The types/modules provided are:
 
-| Type/Module                                                                                           | Defines/Provides                                                  |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| **[SvgExportTransformFormat](010-SvgExportSettings.md "The SvgExportTransformFormat type")**          | How the transformations in the SVG will be expressed              |
-| **[SvgExportColourFormat](010-SvgExportSettings.md "The SvgExportColourFormat type")**                | How the colours in the SVG will be expressed                      |
-| **[SvgExportInvisibilityPolicy](010-SvgExportSettings.md "The SvgExportInvisibilityPolicy type")**    | Whether invisible elements will be exported                       |
-| **[Svg](100-ExportingToAnSvgFile.md "The Svg module")**                                               | The actual export functionality                                   |
+| Type/Module                                                                                                           | Defines/Provides                                          |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| **[XmlEncoding](010-SvgExportSettings.md "The XmlEncoding type")**                                                    | How the XML will be encoded                               |
+| **[SvgVersion](010-SvgExportSettings.md "The SvgVersion type")**                                                      | The version of the SVG that will be generated             |
+| **[SvgExportElementIdentificationPolicy](010-SvgExportSettings.md "The SvgExportElementIdentificationPolicy type")**  | Whether/how element identification be expressed           |
+| **[SvgExportColourFormat](010-SvgExportSettings.md "The SvgExportColourFormat type")**                                | How the colours in the SVG will be expressed              |
+| **[SvgExportTransformFormat](010-SvgExportSettings.md "The SvgExportTransformFormat type")**                          | How the transformations in the SVG will be expressed      |
+| **[SvgExportInvisibilityPolicy](010-SvgExportSettings.md "The SvgExportInvisibilityPolicy type")**                    | Whether invisible elements will be exported               |
+| **[SvgExportOpacityPolicy](010-SvgExportSettings.md "The SvgExportOpacityPolicy type")**                              | When opacities will be expressed                          |
+| **[SvgExportOpacityFormat](010-SvgExportSettings.md "The SvgExportOpacityFormat type")**                              | How opacities will be expressed                           |
+| **[SvgExportDefaultAttributePolicy](010-SvgExportSettings.md "The SvgExportDefaultAttributePolicy type")**            | How default attributes will be expressed                  |
+| **[SvgExportSettings](010-SvgExportSettings.md "The SvgExportSettings type")**                                        | The settings for exporting to an SVG                      |
+| **[Svg](100-ExportingToAnSvgFile.md "The Svg module")**                                                               | The actual export functionality                           |
 
 > **Note:** There is no concept of a unit of measure in this package. All measurements can be considered to be of "as yet to be determined" units.
 
@@ -49,6 +58,54 @@ The types/modules provided are:
 Some sample designs are available which can be useful when you are learning what the various types define.
 
 Instructions for generating these samples can be found [here](900-Samples.md "Sample designs").
+
+## Templates
+
+Some template designs are available which can be useful when you want to quickly create a collective design for further manipulation elsewhere.
+
+Instructions for generating these templates can be found [here](910-Templates.md "Templates").
+
+## Other Types
+
+Some extra types are provided which are generally for internal use. When a design is compiled, the 
+result will be a collection of these types. These types are not documented and their composition and/or usage
+may (and probably will) change over time. **You can use them if you want to but it is at your own risk.**
+
+The element types are:
+
+| Type/Module                                   | Defines                                                           |
+| --------------------------------------------- | ----------------------------------------------------------------- |
+| **SvgElement**                                | An element (of one of the types below)                            |
+| **SvgRectangleElement**                       | A rectangle                                                       |
+| **SvgRoundedRectangleElement**                | A rounded rectangle                                               |
+| **SvgPathElement**                            | A path                                                            |
+| **SvgEllipseElement**                         | An ellipse                                                        |
+| **SvgPolygonElement**                         | A polygon (closed polyline)                                       |
+| **SvgPolylineElement**                        | A polyline (open polygon)                                         |
+| **SvgLineElementCoordinates**                 | The coordinates of a line                                         |
+| **SvgLineElement**                            | A line                                                            |
+| **SvgTextElement**                            | Some text (not yet used in patterns)                              |
+
+The attribute types are:
+
+| Type/Module                                   | Defines, for an SVG element (where applicable)                    |
+| --------------------------------------------- | ----------------------------------------------------------------- |
+| **SvgFillRule**                               | The fill rule                                                     |
+| **SvgLineJoin**                               | The line join                                                     |
+| **SvgPath**                                   | The path description                                              |
+| **SvgPositionAttributePair**                  | The X and Y position                                              |
+| **SvgCentreAttributePair**                    | The X and Y centre                                                |
+| **SvgSizeAttributePair**                      | The width and height                                              |
+| **SvgRadiusAttributePair**                    | The radii                                                         |
+| **SvgFillOnlyAttribute**                      | The fill (when the fill rule is irrelevant)                       |
+| **SvgFillAttributes**                         | The fill                                                          |
+| **SvgStrokeAttributes**                       | The stroke                                                        |
+| **SvgTransformAttributes**                    | The transform                                                     |
+| **SvgLineCoordinateAttributes**               | The coordinates of a line                                         |
+
+> **IMPORTANT:** As mentioned above, you are not expected to use/manipulate these types manually but you can if you
+want to. If you do then you should be aware that the values are not validated beyond the type system so weird/unexpected
+results can be achieved. It is advised that you just use the patterns to generate designs and forget about these types.
 
 ## Discriminated Union Identity Values
 

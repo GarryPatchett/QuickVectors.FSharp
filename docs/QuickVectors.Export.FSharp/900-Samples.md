@@ -74,32 +74,36 @@ You can also see visual examples of the profiles [here](../QuickVectors.Core.FSh
 
 ### Shapes Sample
 
-When generating the shapes sample you need to always supply four parameters:
+When generating the shapes sample you need to always supply some parameters:
 
 - `random` : A random number generator (from System.Random);
-- `geometryModifier` : The geometry modifier to use when creating the shapes (only used where applicable);
+- `geometryModifier` : The geometry modifier to use when creating the shapes (only used where applicable to the shape);
 - `rotation` : The rotation of every shape;
-- `numberOfVertices` : The number of vertices (only used where applicable).
+- `numberOfVertices` : The number of vertices (only used where applicable to the shape);
+- `strokeCornerPolicy` : The corner policy to be used (is sometimes overridden).
 
-The last three parameters are clamped to their respective ranges so that you can only generate a sample containing
+The middle three parameters are clamped to their respective ranges so that you can only generate a sample containing
 shapes which are possible via normal usage.
 
 An example of specifying the sample is:
 
 ```fsharp 
-Sample.RollCall.shapes System.Random.Shared 40.0 0.0 7
+Sample.RollCall.shapes System.Random.Shared 40.0 0.0 7 StrokeCornerPolicy.RoundCorners 
 ```
 
-...where 40.0 is the geometry modifier percentage, 0.0 is the rotation, and 7 is the number of vertices.
+...where 40.0 is the geometry modifier percentage, 0.0 is the rotation, 7 is the number of vertices, and 
+StrokeCornerPolicy.RoundCorners says that you want the corners of the strokes to be rounded.
 
 You can also see visual examples of the shapes [here](../QuickVectors.Core.FSharp/images/Shape-Examples.png "Visual roll call of the available shapes").
 
 ### Tessellators Sample
 
-The tessellators sample has no parameters.
+When generating the tessellators sample you need to always supply one parameter:
+
+- `strokeCornerPolicy` : The corner policy to be used.
 
 ```fsharp 
-Sample.RollCall.tessellators() 
+Sample.RollCall.tessellators StrokeCornerPolicy.RoundCorners 
 ```
 
 You can also see visual examples of the tessellators [here](../QuickVectors.Core.FSharp/images/Tessellator-Examples.png "Visual roll call of the available tessellators").
@@ -109,6 +113,10 @@ You can also see visual examples of the tessellators [here](../QuickVectors.Core
 To create one of the samples as an SVG you can use code such as:
 
 ```fsharp 
+open System.IO // Required for the File functionality.
+open QuickVectors.Elements.FSharp // Required for generating the samples.
+open QuickVectors.Export.Svg.FSharp // Required for exporting.
+
 Sample.RollCall.palettes() // Create the palettes sample.
 |> Svg.export SvgExportSettings.standard // Use the standard settings.
 |> fun svg -> File.WriteAllText(@"PalettesRollCall.svg", svg) 

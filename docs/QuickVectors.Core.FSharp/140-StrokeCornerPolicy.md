@@ -2,16 +2,16 @@
 
 # Stroke Corner Policy
 
-Defines how the corners between segemnts of a line/path are joined
+Defines how the corners between segments of a line/path are joined.
 
-- The [Corner Policy Type](#the-stroke-corner-policy-type)
+- The [Stroke Corner Policy Type](#the-stroke-corner-policy-type)
 - [Discriminated Union Identity Values](#discriminated-union-identity-values)
 - [Exception-free Processing](#exception-free-processing)
 - [Issues, Questions, and Suggestions](#issues-questions-and-suggestions)
 
 ## The Stroke Corner Policy Type
 
-The `StrokeCornerPolicy` **type** defines a discriminated union used to specify how the corners between segemnts of a line/path are joined
+The `StrokeCornerPolicy` **type** defines a discriminated union used to specify how the corners between segments of a line/path are joined.
 
 The cases are:
 
@@ -28,14 +28,14 @@ The cases are:
 - **3* : When exporting, the default miter limit will be used and this can cause a different result
 under different circumstances.
 
-To specify a corner policy simply supply its name, such as `StrokeCornerPolicy.RoundCorners`.
+To specify a stroke corner policy simply supply its name, such as `StrokeCornerPolicy.RoundCorners`.
 
-Some shapes will look better with a certain corner policy so it's best to experiment to see which is more
+Some shapes will look better with a certain stroke corner policy so it's best to experiment to see which is more
 to your taste depending on your circumstances. (You can use the `Sample.RollCall.shapes` function in the Export
 package to generate samples of the shapes with different corner policies to see which works best for you.)
 
 Some shapes which are drawn with paths - e.g. the cards suits - override your choice of policy because they
-look best using a particular policy. All of the Pane pattern shapes currenty override the corner policy.
+look best using a particular policy. All of the Pane pattern shapes currenty override the stroke corner policy.
 
 The ready-made stroke definitions use `StrokeCornerPolicy.RoundCorners` by default as that looks nice for most shapes.
 
@@ -45,12 +45,12 @@ line joins in SVG files.
 ## Discriminated Union Identity Values
 
 Functions are available for converting to and from POCO types and DU cases.
-See the [overview documentation](000-Overview.md "Package overview") for more inpolicyation about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Exception-free Processing
 
 Exception-free processing versions - FailSafe, Option, and Result - of some functions are available.
-See the [overview documentation](000-Overview.md "Package overview") for more inpolicyation about these.
+See the [overview documentation](000-Overview.md "Package overview") for more information about these.
 
 ## Issues, Questions, and Suggestions
 
